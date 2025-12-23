@@ -2,8 +2,6 @@
 
 A modern, interactive football analytics platform built with React and Vite. This dashboard provides detailed insights into team and player performance, featuring comprehensive statistical analysis, visualizations, and comparative data.
 
-![Dashboard Preview](https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3)
-
 ## 🚀 Features
 
 - **Dual Analysis Modes**:
