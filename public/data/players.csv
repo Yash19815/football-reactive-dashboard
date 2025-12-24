@@ -1,201 +1,62 @@
 id,name,date_of_birth,nationality,position,preferred_foot,height_cm,created_at
-72ecad14-b2a0-4789-99f4-d95622f98a0f,Ederson,11-06-15,Brazil,Goalkeeper,Right,188,2024-08-01 00:00:00
-b1e4bd8a-bea6-4912-bb56-0a85bdb75940,Stefan Ortega,14-06-15,Germany,Goalkeeper,Right,183,2024-08-01 00:00:00
-b2265236-45a2-44d6-903c-d347d2e8aad2,Kyle Walker,14-06-15,England,Defender,Right,180,2024-08-01 00:00:00
-fffff8eb-0897-48a4-be10-f4ca59c43e6c,Josko Gvardiol,2-06-15,Croatia,Defender,Left,185,2024-08-01 00:00:00
-19c19591-483b-400a-8081-2f346a0f4530,Ruben Dias,7-06-15,Portugal,Defender,Left,188,2024-08-01 00:00:00
-f42feeab-777c-40e7-aeb4-76a339023927,Manuel Akanji,8-06-15,Germany,Defender,Right,186,2024-08-01 00:00:00
-4bc6d6c7-5a33-4ba9-8233-a36b693fd434,Rodri,8-06-15,Spain,Midfielder,Right,190,2024-08-01 00:00:00
-f732c572-9c35-4ccd-87f8-8ae03e01c97f,Mateo Kovacic,10-06-15,Croatia,Midfielder,Right,180,2024-08-01 00:00:00
-b73caad1-3472-4a96-ad1b-a1a26940044a,Phil Foden,3-06-15,England,Forward,Left,180,2024-08-01 00:00:00
-7002017a-1743-4f30-b25f-f441156b0b39,Erling Haaland,4-06-15,Norway,Forward,Right,194,2024-08-01 00:00:00
-f81956da-8452-4072-b22b-184db0a3a08f,David Ramsdale,6-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-4e06b293-3252-4cc2-99f8-d74bfd941634,Aaron Ramsdale,6-06-15,England,Goalkeeper,Right,183,2024-08-01 00:00:00
-9c58dbad-1475-4112-93da-c5913cfcc6c7,Ben White,7-06-15,England,Defender,Right,185,2024-08-01 00:00:00
-7ae25006-e1c5-44c1-804a-bac97b152c52,Oleksandr Zinchenko,8-06-15,Ukraine,Defender,Left,185,2024-08-01 00:00:00
-bb76a997-baa3-4bf1-a183-3b5220216681,William Saliba,3-06-15,France,Defender,Right,187,2024-08-01 00:00:00
-ff03112b-fa97-4392-a71f-4d2c47c0a66b,Gabriel Magalhaes,7-06-15,Brazil,Defender,Left,190,2024-08-01 00:00:00
-437c9014-7556-4859-9fe6-266988c958fa,Martin Ødegaard,6-06-15,Norway,Midfielder,Right,180,2024-08-01 00:00:00
-1bf159b4-b6f8-40e4-98c3-1bc3136de1ec,Bukayo Saka,3-06-15,England,Forward,Right,178,2024-08-01 00:00:00
-762b1764-bbae-4ff6-8eb6-5ae55aa59d7c,Kai Havertz,5-06-15,Germany,Forward,Left,190,2024-08-01 00:00:00
-0628d86f-e1a1-4980-87d8-5998f1e25d38,Gabriel Jesus,7-06-15,Brazil,Forward,Right,175,2024-08-01 00:00:00
-616254d6-2ca0-4067-9568-bfd9f2cf52e2,Alisson Becker,12-06-15,Brazil,Goalkeeper,Right,188,2024-08-01 00:00:00
-f74d0356-be1d-4270-8ce8-88b24ce91e73,Caoimhin Kelleher,6-06-15,Ireland,Goalkeeper,Right,186,2024-08-01 00:00:00
-10038ea9-3b89-4263-ae1c-4ef13fdfaa74,Trent Alexander-Arnold,6-06-15,England,Defender,Right,184,2024-08-01 00:00:00
-e69c9db1-f41c-4d34-a235-a54d7458dc38,Andy Robertson,10-06-15,Scotland,Defender,Left,178,2024-08-01 00:00:00
-51a751c5-2ca6-4128-9fdb-075a9b82aa6c,Virgil van Dijk,13-06-15,Netherlands,Defender,Right,193,2024-08-01 00:00:00
-1f1aaf6d-0233-4ab3-8fcf-abb0824b32d3,Ibrahima Konaté,5-06-15,France,Defender,Left,187,2024-08-01 00:00:00
-0a36ed2d-a8d6-4c07-953f-30c5f38e37bf,Mohamed Salah,12-06-15,Egypt,Forward,Left,175,2024-08-01 00:00:00
-2606fd1c-c7b1-4ae0-a106-cd57f46adfae,Luis Diaz,7-06-15,Colombia,Forward,Left,180,2024-08-01 00:00:00
-efb6060b-e629-4851-be2f-6339809d2e27,Dominic Szoboszlai,4-06-15,Hungary,Midfielder,Right,186,2024-08-01 00:00:00
-34c40b4f-1387-4e4a-a588-fefc2ee69f76,Darwin Nunez,5-06-15,Uruguay,Forward,Right,188,2024-08-01 00:00:00
-4ae23553-92dd-4b6f-bcc8-99e58c634350,Robert Sánchez,8-06-15,Spain,Goalkeeper,Right,188,2024-08-01 00:00:00
-09aaf838-4a38-4c70-9954-bab1090bbaf0,Djordje Petrovic,4-06-15,Serbia,Goalkeeper,Right,190,2024-08-01 00:00:00
-c5e8caaf-2ecc-4705-a6c4-985781d643f0,Reece James,5-06-15,England,Defender,Right,188,2024-08-01 00:00:00
-8441c1c0-57b8-4b64-9391-66b97f0a30ef,Malo Gusto,1-06-15,France,Defender,Right,182,2024-08-01 00:00:00
-6b087095-853f-451c-8384-321f2695eee0,Benoit Badiashile,3-06-15,France,Defender,Left,194,2024-08-01 00:00:00
-8910aaa3-f220-4499-8dfe-107daa3f7333,Thiago Silva,20-06-15,Brazil,Defender,Right,184,2024-08-01 00:00:00
-ce0721b2-862d-43e1-bd3d-07a027fa383b,Cole Palmer,2-06-15,England,Forward,Right,188,2024-08-01 00:00:00
-9cf52e23-00ad-4e45-94b8-19303aef14fe,Enzo Fernández,3-06-15,Argentina,Midfielder,Right,180,2024-08-01 00:00:00
-d8c8283e-4b7f-4735-9d91-ad5aa5724230,Moisés Caicedo,3-06-15,Ecuador,Midfielder,Right,188,2024-08-01 00:00:00
-cc23853a-f93c-4d4d-bdd2-4126e18127f0,Nicolas Jackson,3-06-15,Senegal,Forward,Right,185,2024-08-01 00:00:00
-fde8beba-805a-41e1-8228-2f17a8c297a7,Andre Onana,8-06-15,Cameroon,Goalkeeper,Right,189,2024-08-01 00:00:00
-8f902ccf-bf6e-47bd-bc2d-07cb4c7874e1,Altay Bayindir,6-06-15,Turkey,Goalkeeper,Right,191,2024-08-01 00:00:00
-45d9703f-8fa1-449f-add2-61a459f2395b,Wan-Bissaka,7-06-15,England,Defender,Right,183,2024-08-01 00:00:00
-14e7e24f-7da8-4252-8079-84600d402452,Luke Shaw,9-06-15,England,Defender,Left,185,2024-08-01 00:00:00
-c5d1c97a-67c7-4cdb-b6fc-5619339708cf,Lisandro Martinez,6-06-15,Argentina,Defender,Left,175,2024-08-01 00:00:00
-eaf1da4e-1833-45fc-a1cc-86ee715d6cca,Harry Maguire,11-06-15,England,Defender,Right,194,2024-08-01 00:00:00
-974e4185-083b-4ea6-879a-0cbf1d79d6de,Bruno Fernandes,10-06-15,Portugal,Midfielder,Right,188,2024-08-01 00:00:00
-10ee65dd-6b91-42b9-a753-b66cd462741a,Casemiro,12-06-15,Brazil,Midfielder,Right,184,2024-08-01 00:00:00
-6553b1d5-7808-4665-bdca-f9a55720cddc,Marcus Rashford,7-06-15,England,Forward,Right,180,2024-08-01 00:00:00
-f10dab69-25dc-4365-be9b-a5224b323284,Rasmus Hojlund,1-06-15,Denmark,Forward,Right,192,2024-08-01 00:00:00
-7248a956-3dcd-4a43-986e-c4dcbacb1bd4,Guglielmo Vicario,5-06-15,Italy,Goalkeeper,Right,188,2024-08-01 00:00:00
-aea1c44b-548a-4f48-abd2-5a4e68b408b8,Fraser Forster,15-06-15,England,Goalkeeper,Right,196,2024-08-01 00:00:00
-5938c3e1-8929-4262-bcbc-f83ff3adc0d2,Porro,2-06-15,Spain,Defender,Right,180,2024-08-01 00:00:00
-acf9589e-0e30-4160-bb59-61c9d75db6e9,Ben Davies,12-06-15,Wales,Defender,Left,184,2024-08-01 00:00:00
-71664ef0-9cda-493a-93de-72171ede39ba,Cristian Romero,6-06-15,Argentina,Defender,Right,183,2024-08-01 00:00:00
-061bd0de-3754-4de0-a2e7-4cb4a5cc58d7,Romain Saïss,14-06-15,Morocco,Defender,Right,188,2024-08-01 00:00:00
-553e2411-08a4-4b4a-bbff-6cc1347363fd,James Maddison,8-06-15,England,Midfielder,Right,180,2024-08-01 00:00:00
-56ee87d0-f19a-42ac-b3de-e111a69c6b58,Sarr,6-06-15,Senegal,Midfielder,Right,180,2024-08-01 00:00:00
-72f8a56d-76f9-446a-b7c2-7453ef0f675d,Son Heung-min,12-06-15,South Korea,Forward,Left,183,2024-08-01 00:00:00
-3774999e-f4b4-45e2-a730-562eecbedece,Richarlison,7-06-15,Brazil,Forward,Right,180,2024-08-01 00:00:00
-e600505f-16a2-4237-a561-7a34d39c78d2,Emiliano Martinez,12-06-15,Argentina,Goalkeeper,Right,195,2024-08-01 00:00:00
-5332a2f7-4cc7-4b0e-bb10-59538ea130ac,Robin Olsen,14-06-15,Sweden,Goalkeeper,Right,188,2024-08-01 00:00:00
-7aa81bb5-003a-45d3-802a-dcebf6807668,Matty Cash,7-06-15,Poland,Defender,Right,188,2024-08-01 00:00:00
-199d0b9d-5930-45f9-99d3-6b8133569ee1,Lucas Digne,10-06-15,France,Defender,Left,178,2024-08-01 00:00:00
-6753034b-58dc-48b0-aa1b-525d87e72b43,Ezri Konsa,7-06-15,England,Defender,Right,188,2024-08-01 00:00:00
-e4c7cda9-597a-4b69-b251-bc37fc798565,Pau Torres,8-06-15,Spain,Defender,Right,187,2024-08-01 00:00:00
-38c7b0b9-1bee-4712-a62e-42ea73838015,Jhon Duran,1-06-15,Colombia,Forward,Right,175,2024-08-01 00:00:00
-67a75e7e-48e7-4cb2-aedd-4a2595a6946b,John McGinn,10-06-15,Scotland,Midfielder,Right,185,2024-08-01 00:00:00
-afc8fc30-36f2-4c83-bd2c-ac9e9d724f6d,Youri Tielemans,7-06-15,Belgium,Midfielder,Right,180,2024-08-01 00:00:00
-d25367f2-58a0-4062-b125-909fa729a74e,Ollie Watkins,9-06-15,England,Forward,Right,179,2024-08-01 00:00:00
-e49240b8-6b8a-4b79-a54f-19d070dd950e,Nick Pope,12-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-98df0534-3186-48ae-9777-49e484194949,Martin Dubravka,15-06-15,Slovakia,Goalkeeper,Right,188,2024-08-01 00:00:00
-b84dd7fc-938a-471e-a79e-5a00cebf7dfc,Kieran Trippier,14-06-15,England,Defender,Right,183,2024-08-01 00:00:00
-fde3dd07-ad9f-466b-a7f2-d7bffed03ec4,Dan Burn,12-06-15,England,Defender,Right,201,2024-08-01 00:00:00
-75a6c15a-17e3-49b2-8378-47e6ea760d82,Fabian Schär,13-06-15,Switzerland,Defender,Right,187,2024-08-01 00:00:00
-08725303-caa3-466d-910c-392b8451f00b,Lloyd Kelly,6-06-15,England,Defender,Right,185,2024-08-01 00:00:00
-3e49d17d-60f9-4a60-8b8d-25c9944b1f58,Bruno Guimaraes,7-06-15,Brazil,Midfielder,Right,179,2024-08-01 00:00:00
-dfb89844-d1ba-458d-9cee-f91efd5fe080,Joelinton,8-06-15,Brazil,Midfielder,Right,183,2024-08-01 00:00:00
-5bb84cf5-aefc-4f8b-86fa-8973b3793e41,Alexander Isak,8-06-15,Sweden,Forward,Right,187,2024-08-01 00:00:00
-42797902-4833-479f-926d-64e306705658,Callum Wilson,12-06-15,England,Forward,Right,182,2024-08-01 00:00:00
-5e4b36ba-af6f-4791-9d8b-c27a4d763239,Jason Steele,14-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-a0ae2ba8-82f3-4240-8ca6-cbd477c5363f,Bart Verbruggen,2-06-15,Netherlands,Goalkeeper,Right,188,2024-08-01 00:00:00
-270ef98c-a3eb-49b3-aa26-12ceeec17244,Tariq Lamptey,4-06-15,England,Defender,Right,173,2024-08-01 00:00:00
-98651ce2-d072-421d-bd06-c166809718bd,Adam Webster,9-06-15,England,Defender,Right,193,2024-08-01 00:00:00
-0de26e5c-2513-44f5-bf31-81eb69a792ad,Igor Julio,6-06-15,Brazil,Defender,Right,190,2024-08-01 00:00:00
-25696e52-439d-4d57-86ab-40de5489387f,Pervis Estupinan,6-06-15,Ecuador,Defender,Left,182,2024-08-01 00:00:00
-c4046b31-862b-4ce9-ae55-bb76b1e2f03e,Moisés Caicedo,3-06-15,Ecuador,Midfielder,Right,188,2024-08-01 00:00:00
-0c1ac28e-ba18-45e1-b17c-540a570dd7e5,Alexis Mac Allister,6-06-15,Argentina,Midfielder,Right,180,2024-08-01 00:00:00
-69b1d69a-87f9-466d-86cb-7ccda0f6b328,Simon Adingra,3-06-15,Ivory Coast,Forward,Right,178,2024-08-01 00:00:00
-a3edf4e0-8f18-4c09-8365-1082e7100a39,Evan Ferguson,0-06-15,Ireland,Forward,Right,189,2024-08-01 00:00:00
-7b4e1572-9908-49ef-8d9c-c004528bbf17,Bernd Leno,12-06-15,Germany,Goalkeeper,Left,188,2024-08-01 00:00:00
-4d384be8-d010-44eb-9d8b-c71ee8c7e161,Marek Rodak,8-06-15,Slovakia,Goalkeeper,Right,188,2024-08-01 00:00:00
-8cb7553b-a6b0-46eb-ae2a-44557b5a4536,Antonee Robinson,7-06-15,United States,Defender,Right,178,2024-08-01 00:00:00
-6ed1c851-013c-4224-8cf4-7bf29dbd7a14,Jorge Cuenca,3-06-15,Spain,Defender,Right,189,2024-08-01 00:00:00
-35375528-2ab1-4621-b679-a381f36eaf60,Issa Diop,7-06-15,France,Defender,Right,194,2024-08-01 00:00:00
-4dc2939d-de45-43f7-93a1-431d376eb672,Tyrone Mings,12-06-15,England,Defender,Left,193,2024-08-01 00:00:00
-3bb3d881-b7c8-4a60-b480-86a38d9f85fc,Adama Traore,10-06-15,Burkina Faso,Forward,Right,183,2024-08-01 00:00:00
-eeb4e9c3-60c8-45e2-8364-31e31b7221f5,Tom Cairney,13-06-15,Scotland,Midfielder,Right,188,2024-08-01 00:00:00
-ec072560-8619-410e-a1cf-f4c52c7279f3,Raul Jimenez,13-06-15,Mexico,Forward,Right,191,2024-08-01 00:00:00
-053d4f8b-ed64-4cc9-9855-a9d8d07dcdce,Alex Iwobi,8-06-15,Nigeria,Forward,Right,184,2024-08-01 00:00:00
-8d417cee-dfe7-49e3-8c9f-42ca49a94dc6,Matz Sels,12-06-15,Belgium,Goalkeeper,Right,188,2024-08-01 00:00:00
-c60f0232-6ad9-4540-90d5-1de4c282593f,Dean Henderson,7-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-cea5637e-e83b-4d77-a72e-57b65f360d6f,Neco Williams,3-06-15,Wales,Defender,Right,178,2024-08-01 00:00:00
-4d7e9b9e-e9f9-4fe4-bf0b-3ea5bf75bb4b,Danilo,13-06-15,Brazil,Defender,Right,187,2024-08-01 00:00:00
-d660ead6-611a-49bf-a79e-b498df4f707a,Murillo,2-06-15,Brazil,Defender,Left,187,2024-08-01 00:00:00
-7cd9de8b-a6d8-4bbc-a7de-f18b7154e82d,Willy Boly,13-06-15,Ivory Coast,Defender,Right,191,2024-08-01 00:00:00
-933b4169-3a9c-41d5-bc0b-408969f7aa4d,Callum Hudson-Odoi,6-06-15,England,Forward,Right,180,2024-08-01 00:00:00
-3aa32415-0a46-4a91-9e1c-5b35e8492bfd,Ryan Yates,6-06-15,England,Midfielder,Right,190,2024-08-01 00:00:00
-1fc2120a-2058-4d30-861b-fb5aa39628e4,James Maddison,8-06-15,England,Midfielder,Right,180,2024-08-01 00:00:00
-9bcfd561-adde-4404-8a1c-3884bf9acfac,Anthony Elanga,2-06-15,Sweden,Forward,Left,182,2024-08-01 00:00:00
-4e5062de-bbe3-49c8-83ae-0eb2beee89a3,Mark Flekken,11-06-15,Netherlands,Goalkeeper,Right,188,2024-08-01 00:00:00
-fb7317e0-28aa-4310-8d83-9393d96c830e,David Raya,9-06-15,Spain,Goalkeeper,Right,185,2024-08-01 00:00:00
-b4b2f5bd-e154-4af2-9274-651a0cca4851,Kristoffer Ajer,6-06-15,Norway,Defender,Right,194,2024-08-01 00:00:00
-10da5fc3-d0ca-47fb-a96e-ff0ff02319c3,Aaron Hickey,2-06-15,Scotland,Defender,Left,175,2024-08-01 00:00:00
-2cad662e-a8f7-4bab-b380-72fe2d5fd6ff,Sepp van de Ven,5-06-15,Netherlands,Defender,Left,191,2024-08-01 00:00:00
-31fa3169-09cb-46d0-a3e2-2ede6048c867,Ethan Pinnock,8-06-15,Jamaica,Defender,Right,188,2024-08-01 00:00:00
-1266d5ef-e933-46eb-a176-a881644c7630,Bryan Mbeumo,5-06-15,Cameroon,Forward,Right,180,2024-08-01 00:00:00
-c5cb9484-b40d-403a-b80f-1e6a8f70d37b,Christian Norgaard,10-06-15,Denmark,Midfielder,Right,190,2024-08-01 00:00:00
-98a045b0-2a30-4d63-ae00-5897f972bdab,Thomas Frank,10-06-15,Denmark,Midfielder,Right,180,2024-08-01 00:00:00
-57fabfc7-12c2-4f73-a5e3-ae74855ee0af,Yoane Wissa,7-06-15,Congo,Forward,Left,180,2024-08-01 00:00:00
-0024780b-a1f9-41f4-8d31-8896bf2cef9d,Alphonse Areola,12-06-15,France,Goalkeeper,Right,188,2024-08-01 00:00:00
-257b7e40-1400-4f73-897a-913d9245064a,Łukasz Fabiański,19-06-15,Poland,Goalkeeper,Right,188,2024-08-01 00:00:00
-f73e76eb-a35c-4f2c-88a1-f4454bde7594,Vladimir Coufal,12-06-15,Czech Republic,Defender,Right,182,2024-08-01 00:00:00
-ed42c7fa-9c69-43ba-9c92-764293988227,Aaron Cresswell,13-06-15,England,Defender,Left,180,2024-08-01 00:00:00
-c15083e2-bc87-4d4b-a585-7872e24877f7,Craig Dawson,14-06-15,England,Defender,Right,190,2024-08-01 00:00:00
-1d5cf565-8992-4207-bcf2-71ac022ea613,Thilo Kehrer,8-06-15,Germany,Defender,Right,189,2024-08-01 00:00:00
-2902cf74-38f7-4788-be91-21565413f5d2,Jarrod Bowen,7-06-15,England,Forward,Right,180,2024-08-01 00:00:00
-c09ae080-091c-444d-a97e-6d6c7d53e504,Declan Rice,5-06-15,England,Midfielder,Right,185,2024-08-01 00:00:00
-fb95f693-a005-4967-9ad4-feb6a7affa4b,Tomás Souček,9-06-15,Czech Republic,Midfielder,Right,193,2024-08-01 00:00:00
-8ff8645c-3493-45ec-86d0-42ae2c1acff4,Michail Antonio,14-06-15,England,Forward,Right,188,2024-08-01 00:00:00
-c469604b-4163-4dba-856d-9c77182bebdb,Sam Johnstone,11-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-5e827415-2a00-4abb-a6da-56f218874486,Dean Whitley,3-06-15,England,Goalkeeper,Right,190,2024-08-01 00:00:00
-5a8e41f9-b94b-44d2-877c-ee571059987a,Joel Ward,15-06-15,England,Defender,Right,178,2024-08-01 00:00:00
-6ffc4f77-5078-416a-bc70-b3b897365ea6,Nathaniel Clyne,13-06-15,England,Defender,Right,183,2024-08-01 00:00:00
-b6afeb4b-f8e9-4795-9664-4c5816874ea9,Joachim Andersen,8-06-15,Denmark,Defender,Right,188,2024-08-01 00:00:00
-b4371deb-1805-4109-9aa9-b83c0f5dcea5,Marc Guéhi,5-06-15,France,Defender,Right,187,2024-08-01 00:00:00
-638f7739-98cf-47f3-ba4d-183639d2004f,Michael Olise,3-06-15,France,Forward,Left,180,2024-08-01 00:00:00
-e8900e3d-8e46-45e9-b797-99c9a751f744,Jordan Ayew,13-06-15,Ghana,Forward,Right,180,2024-08-01 00:00:00
-3f3378c3-b357-482c-9e50-c60588acc0d7,Will Hughes,10-06-15,England,Midfielder,Right,188,2024-08-01 00:00:00
-fd3e99a1-1571-48b7-9c6e-fdb03bd9ee1f,Jefferson Lerma,10-06-15,Colombia,Midfielder,Right,183,2024-08-01 00:00:00
-5960f0f7-eab2-4422-b83f-ea7bcb93c19c,Jose Sá,11-06-15,Portugal,Goalkeeper,Right,188,2024-08-01 00:00:00
-30a462a4-ea9f-4d36-81b5-3086760d878d,Andrew Lonergan,21-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-c286e60a-b93c-414b-af8f-47ffd620d528,Jonny Otto,10-06-15,Spain,Defender,Left,180,2024-08-01 00:00:00
-122f3ced-7617-4f63-921c-2c19a1b2557d,Romain Saïss,14-06-15,Morocco,Defender,Right,188,2024-08-01 00:00:00
-da7ce359-25d7-416d-a552-70404d755155,Conor Coady,14-06-15,England,Defender,Right,187,2024-08-01 00:00:00
-359617a3-c48f-4e3a-a6ae-1c1bde31f667,Toti Gomes,5-06-15,Portugal,Defender,Right,185,2024-08-01 00:00:00
-6d2dff3c-a0d5-473c-a0e8-94d917635c04,Matheus Nunes,4-06-15,Brazil,Midfielder,Right,175,2024-08-01 00:00:00
-7c635170-d347-44ed-9449-d1a9bc2d8938,Joao Moutinho,18-06-15,Portugal,Midfielder,Right,170,2024-08-01 00:00:00
-021dc46f-bc81-477d-8570-adc0ab012e68,Daniel Podence,8-06-15,Portugal,Forward,Left,168,2024-08-01 00:00:00
-09204207-508b-4ed2-874e-ee480a1f6786,Hwang Hee-chan,9-06-15,South Korea,Forward,Right,183,2024-08-01 00:00:00
-aa3142a9-2bae-41fc-9bc0-b3c7cdec5cb4,Jordan Pickford,10-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-fd7a07e1-cd10-4fe3-8efd-e6173f081b5c,Asmir Begovic,17-06-15,Bosnia,Goalkeeper,Right,197,2024-08-01 00:00:00
-58cb9dbe-fd6b-43b9-abd5-61d21a686f89,Seamus Coleman,16-06-15,Ireland,Defender,Right,180,2024-08-01 00:00:00
-7d44dcf5-5ee8-4880-b29e-a6ad61e414ce,Ashley Young,19-06-15,England,Defender,Right,180,2024-08-01 00:00:00
-275cd4b6-0d87-4de5-9dae-e915018b14b7,James Tarkowski,12-06-15,England,Defender,Right,188,2024-08-01 00:00:00
-b809f68f-7b15-49f4-887c-7dd0cf193507,Jarrad Branthwaite,2-06-15,England,Defender,Right,194,2024-08-01 00:00:00
-e5c5ef88-fca8-43f0-aa3a-2dc8a013c5f3,Amadou Onana,4-06-15,Belgium,Midfielder,Right,195,2024-08-01 00:00:00
-6b32c4fe-0abe-4690-a007-8260f44bcc25,Idrissa Gueye,15-06-15,Senegal,Midfielder,Right,182,2024-08-01 00:00:00
-ed4a2d72-b211-4f18-97ca-230b4bf6c99f,Dwight McNeil,7-06-15,England,Forward,Left,180,2024-08-01 00:00:00
-576f21a2-5b80-4bf4-b3ce-4074872520fc,Dominic Calvert-Lewin,10-06-15,England,Forward,Right,188,2024-08-01 00:00:00
-8e664812-b4de-4800-bf94-4346b29bbbd4,Kasper Schmeichel,18-06-15,Denmark,Goalkeeper,Right,188,2024-08-01 00:00:00
-91bda8be-c48d-4434-93fb-f039dead5a64,Conor Coady,14-06-15,England,Goalkeeper,Right,187,2024-08-01 00:00:00
-b472fb76-5faf-42b8-ab9a-8ea0daffe19d,Ricardo Pereira,12-06-15,Portugal,Defender,Right,180,2024-08-01 00:00:00
-293ccd34-0e92-4154-915e-2a0a7f6635d3,Justin,8-06-15,United States,Defender,Left,183,2024-08-01 00:00:00
-29904749-bc36-4de3-8059-e3f5ff05decc,Jannik Vestergaard,12-06-15,Denmark,Defender,Left,195,2024-08-01 00:00:00
-2d8bdf32-b32e-4684-887d-963e8ebe1269,Wout Faes,6-06-15,Belgium,Defender,Right,187,2024-08-01 00:00:00
-27a6c9e7-fd9f-4a83-b3d7-b6b1d4c3e54a,Kiernan Dewsbury-Hall,5-06-15,England,Midfielder,Right,180,2024-08-01 00:00:00
-8ed484fc-e701-417b-8191-2a25841e27ed,Wilfred Ndidi,8-06-15,Nigeria,Midfielder,Right,185,2024-08-01 00:00:00
-4a2cf97d-5aa5-4636-b27f-179de43e1279,Kasey McAteer,2-06-15,England,Forward,Right,175,2024-08-01 00:00:00
-025a3e02-0687-4df1-9b01-0babfd68c34d,Jamie Vardy,17-06-15,England,Forward,Right,179,2024-08-01 00:00:00
-d61d3914-c087-4c9a-84b2-a7ad809f7841,Mark Travers,6-06-15,Ireland,Goalkeeper,Right,186,2024-08-01 00:00:00
-2e370df6-c7dc-466a-b851-3753dd182b33,Neto,4-06-15,Brazil,Goalkeeper,Right,187,2024-08-01 00:00:00
-6a26af19-9de0-4ad9-81ff-38c22a36bcb1,Lloyd Kelly,6-06-15,England,Defender,Right,185,2024-08-01 00:00:00
-28c28315-c1ad-491c-8d39-49bff7e1aa2d,Adam Smith,14-06-15,England,Defender,Right,180,2024-08-01 00:00:00
-43fba8d8-13a9-4513-9035-8e12fa4ced8d,Milos Kerkez,1-06-15,Hungary,Defender,Left,180,2024-08-01 00:00:00
-2e7128f6-d55e-4b2c-8018-ea8c488656d4,Julio Soler,1-06-15,Colombia,Defender,Right,185,2024-08-01 00:00:00
-861ff502-4203-42e5-8b0c-73c84986beeb,Antoine Semenyo,6-06-15,Ghana,Forward,Left,180,2024-08-01 00:00:00
-2c1f6d7f-278c-4403-820f-5574b9a73350,Justin Kluivert,6-06-15,Netherlands,Forward,Left,185,2024-08-01 00:00:00
-4e8fc844-e3ee-4acf-a01f-a8a8f131d4f5,Ryan Christie,10-06-15,Scotland,Midfielder,Right,182,2024-08-01 00:00:00
-947fd45e-29f9-495e-8d20-bdb1f895dc26,Dominic Solanke,12-06-15,England,Forward,Right,188,2024-08-01 00:00:00
-2e5cdf8c-3cc4-4cb9-a1e6-cbf0422d49e1,Arijanet Muric,6-06-15,Kosovo,Goalkeeper,Right,189,2024-08-01 00:00:00
-4597d735-15b7-4d8f-9125-b48b57f36051,Christian Walton,8-06-15,England,Goalkeeper,Right,188,2024-08-01 00:00:00
-a5fa150c-ae33-4cfb-b4ab-81d8d56f48a6,Janssen,8-06-15,Netherlands,Defender,Right,183,2024-08-01 00:00:00
-d8cb9ea4-7f05-46fc-8912-434decf3b56f,Cameron Burgess,5-06-15,England,Defender,Right,189,2024-08-01 00:00:00
-da1d63ce-2dac-4c48-aada-541dcc2dedb7,Ben Johnson,6-06-15,England,Defender,Right,183,2024-08-01 00:00:00
-0601618c-db68-4782-8402-9055844f0d7a,Harry Clarke,1-06-15,England,Defender,Right,180,2024-08-01 00:00:00
-8e3e22ed-3414-4139-933a-1a4195681b7e,Omari Hutchinson,2-06-15,England,Forward,Right,180,2024-08-01 00:00:00
-48ffd5c0-2240-489f-98ab-ba099a5e8d4d,Sam Morsy,12-06-15,Egypt,Midfielder,Right,178,2024-08-01 00:00:00
-5691d5f8-00b9-40b4-b8f8-318aaeab815f,Conor Chaplin,9-06-15,England,Forward,Right,178,2024-08-01 00:00:00
-823c60af-6b67-4d4f-8414-d1811c249691,Liam Delap,1-06-15,England,Forward,Right,188,2024-08-01 00:00:00
-7d2f384d-780c-4792-abca-01b5503bb870,Romain Perraud,6-06-15,France,Goalkeeper,Right,187,2024-08-01 00:00:00
-e4b6eafb-910d-483e-b90f-2270dea9c93f,Gavin Bazunu,2-06-15,Ireland,Goalkeeper,Right,188,2024-08-01 00:00:00
-971c0d98-e6ca-458a-9f9e-9535e1a61b1a,Yukinari Sugawara,6-06-15,Japan,Defender,Right,175,2024-08-01 00:00:00
-22ee14e3-13b0-4f15-83fe-7e2627e5b7a0,Kyle Walker-Peters,8-06-15,England,Defender,Right,180,2024-08-01 00:00:00
-d2b4de62-1825-4a63-b483-a7b30e36b9cc,Jan Bednarek,8-06-15,Poland,Defender,Right,190,2024-08-01 00:00:00
-0bc3c0d3-1f71-4e71-9cba-ead439e57c63,Ibrahima Diallo,7-06-15,Senegal,Defender,Left,188,2024-08-01 00:00:00
-44be04b6-1746-4f50-982a-fc3007e5779e,Flynn Downes,2-06-15,England,Midfielder,Right,186,2024-08-01 00:00:00
-e5366815-ecaf-4a17-b498-2fed0540cf25,Stuart Armstrong,14-06-15,Scotland,Midfielder,Right,188,2024-08-01 00:00:00
-3811fd6d-3a05-498b-940a-fdf91941c787,Sekou Mara,3-06-15,Guinea,Forward,Right,184,2024-08-01 00:00:00
-3b0fd047-874c-4bb2-ac3e-36b211d750f5,Cameron Archer,3-06-15,England,Forward,Right,183,2024-08-01 00:00:00
+75084b9b-0172-4326-be99-cfedda267d47,Ederson,1993-07-04,Brazil,Goalkeeper,Right,188,2019-08-01 00:00:00
+e6d8ca6f-0a38-4717-8fe7-82f933527986,Kyle Walker,1990-05-22,England,Defender,Right,180,2019-08-01 00:00:00
+23a9e618-2a3d-44d7-93e3-b497ed381f10,Ruben Dias,1997-11-19,Portugal,Defender,Left,188,2019-08-01 00:00:00
+7762c23b-4ebf-403a-92f0-21fc9f6ba0bc,Josko Gvardiol,2002-08-17,Croatia,Defender,Left,185,2019-08-01 00:00:00
+ad03955e-161d-41ef-ac60-2c4c0021c3cc,Rodri,1996-11-10,Spain,Midfielder,Right,190,2019-08-01 00:00:00
+6f796906-f7e4-4ffa-9b64-2e36df927743,Kevin De Bruyne,1991-01-08,Belgium,Midfielder,Right,181,2019-08-01 00:00:00
+6dc500fa-fe61-407f-9df5-887920d059b5,Phil Foden,2000-07-20,England,Forward,Left,180,2019-08-01 00:00:00
+032138b9-9c1e-48d5-89dc-d3e98b750223,Erling Haaland,2000-01-01,Norway,Forward,Right,194,2019-08-01 00:00:00
+e6275cc6-1ee3-4de3-b576-1e1523777b76,Jack Grealish,1995-04-10,England,Forward,Right,180,2019-08-01 00:00:00
+1236b52d-2212-42a0-9e62-6b52a24c6a95,Bernardo Silva,1994-04-25,Portugal,Midfielder,Left,180,2019-08-01 00:00:00
+b024b796-d00b-43a3-a451-bfdce524000a,Alisson Becker,1992-03-25,Brazil,Goalkeeper,Right,188,2019-08-01 00:00:00
+01381d4d-4cb5-4e35-9d42-d5aeb61ec995,Trent Alexander-Arnold,1998-05-10,England,Defender,Right,184,2019-08-01 00:00:00
+708319eb-638f-4efb-a822-03f921e3d31a,Virgil van Dijk,1991-06-04,Netherlands,Defender,Right,193,2019-08-01 00:00:00
+027a7bae-f370-43e7-a5ec-3e1e774c010a,Andy Robertson,1994-01-16,Scotland,Defender,Left,178,2019-08-01 00:00:00
+3a889af7-ea59-461f-a2dc-82355fa7bf6c,Mohamed Salah,1992-12-14,Egypt,Forward,Left,175,2019-08-01 00:00:00
+b45fc4b4-d7ee-41cd-8415-a70e9ca769c1,Darwin Nunez,1999-03-05,Uruguay,Forward,Right,188,2019-08-01 00:00:00
+cd31af72-ede8-4e76-a7a0-a803fa0b5ea7,Luis Diaz,1997-07-18,Colombia,Forward,Left,180,2019-08-01 00:00:00
+961d8120-84bf-41ed-83e0-fbbad425025a,Fabinho,1993-12-08,Brazil,Midfielder,Right,188,2019-08-01 00:00:00
+2f03fd7c-afd1-45fa-a188-a44752a97d9f,Thiago Alcantara,1991-09-18,Spain,Midfielder,Right,174,2019-08-01 00:00:00
+1dc52709-6e25-404d-8340-2aabf999909f,Sadio Mane,1992-11-26,Senegal,Forward,Right,175,2019-08-01 00:00:00
+f987f438-cc3d-439c-ad88-de8088507055,Aaron Ramsdale,1998-06-03,England,Goalkeeper,Right,188,2019-08-01 00:00:00
+0ee9cc7e-c5ae-44e7-a71a-c15f546aabec,William Saliba,2001-07-28,France,Defender,Right,187,2019-08-01 00:00:00
+11ac3074-9e91-4e33-9f5c-fd6de33bd81c,Gabriel Magalhaes,1997-12-02,Brazil,Defender,Left,190,2019-08-01 00:00:00
+5e187ab2-cdaf-4a0b-988a-d145a6d8cc41,Ben White,1997-07-01,England,Defender,Right,185,2019-08-01 00:00:00
+e0656578-1005-4c56-bdf9-f3286c023e88,Martin Ødegaard,1998-08-03,Norway,Midfielder,Right,180,2019-08-01 00:00:00
+e36b2c8a-16c6-437a-b601-950fd2fe66cb,Bukayo Saka,2001-06-19,England,Forward,Right,178,2019-08-01 00:00:00
+b343fa2a-4803-4498-9be0-80372428d38d,Gabriel Jesus,1997-07-19,Brazil,Forward,Right,175,2019-08-01 00:00:00
+8bc23e79-66ce-4e9f-b186-f9ba41dfafc9,Kai Havertz,1999-07-23,Germany,Forward,Left,190,2019-08-01 00:00:00
+fe5e6d3b-1905-4e63-be9a-9797815d81a2,Declan Rice,1999-11-14,England,Midfielder,Right,185,2019-08-01 00:00:00
+173d5f07-0204-4a3f-98d5-fa296ca5d84e,Thomas Partey,1993-05-04,Ghana,Midfielder,Right,185,2019-08-01 00:00:00
+795777f7-2396-4460-a0b4-7cdfc47fa503,Robert Sánchez,1997-07-01,Spain,Goalkeeper,Right,188,2019-08-01 00:00:00
+12a71e66-5bac-43b7-bc03-dc3d8d197db3,Reece James,1999-06-06,England,Defender,Right,188,2019-08-01 00:00:00
+a0039a84-b7f5-4285-8e97-f6f2b38a7636,Thiago Silva,1984-10-15,Brazil,Defender,Right,184,2019-08-01 00:00:00
+d2d28d3a-8c72-4e36-8ff4-c7c58ec63cde,Ben Chilwell,1996-12-12,England,Defender,Left,180,2019-08-01 00:00:00
+1dbda1a1-b769-42dc-ba5a-af2c33589103,Enzo Fernández,2001-02-14,Argentina,Midfielder,Right,180,2019-08-01 00:00:00
+370c2e2b-79b1-46f7-bd5b-c64a8b55b393,Cole Palmer,2002-02-08,England,Forward,Right,188,2019-08-01 00:00:00
+e4c01ced-4930-4ecc-808f-4c7744b0e2a0,Nicolas Jackson,2001-07-19,Senegal,Forward,Right,185,2019-08-01 00:00:00
+67dfeb4c-5223-4ff5-96c2-cfdfc2faca23,Raheem Sterling,1994-07-17,England,Forward,Right,175,2019-08-01 00:00:00
+e88695ab-c006-4cd1-a009-8671bb69362a,Mason Mount,1999-02-13,England,Midfielder,Right,180,2019-08-01 00:00:00
+669bc6a2-b5ec-40a7-a0b7-e4bed9626154,Kai Havertz,1999-05-24,Germany,Forward,Left,190,2019-08-01 00:00:00
+68f80fe4-340c-4532-85a5-a3582d425110,Andre Onana,1996-06-08,Cameroon,Goalkeeper,Right,189,2019-08-01 00:00:00
+5cbc5a84-8bfe-497b-9e9e-fd8d7a2dadaa,Luke Shaw,1995-06-25,England,Defender,Left,185,2019-08-01 00:00:00
+07a9fadc-9dfc-4789-a2e3-19d728f5ba9f,Lisandro Martinez,1998-03-03,Argentina,Defender,Left,175,2019-08-01 00:00:00
+3bb81b70-883f-48a1-9a84-343f2bf1c177,Harry Maguire,1993-09-21,England,Defender,Right,194,2019-08-01 00:00:00
+32863fc5-9569-4a77-be08-f3389e0e44de,Bruno Fernandes,1994-02-17,Portugal,Midfielder,Right,188,2019-08-01 00:00:00
+4bcc6e71-d4d0-490a-8143-12e4c4020066,Casemiro,1992-09-07,Brazil,Midfielder,Right,184,2019-08-01 00:00:00
+e772d9ab-9bed-40ac-9075-df5230a3aca3,Marcus Rashford,1997-06-12,England,Forward,Right,180,2019-08-01 00:00:00
+82451f14-bbd6-4d46-8297-91d979e68914,Rasmus Hojlund,2003-12-27,Denmark,Forward,Right,192,2019-08-01 00:00:00
+f1ae0cc5-cf44-44f4-9fe3-65411a3ee5ed,Antony,2000-11-27,Brazil,Forward,Left,180,2019-08-01 00:00:00
+71bcbd4e-a4c4-4f31-829e-99d5036e9f24,Jadon Sancho,2000-03-08,England,Forward,Right,180,2019-08-01 00:00:00
+b543aa69-6c4b-4f06-8adf-8989a01ea712,Guglielmo Vicario,1996-02-05,Italy,Goalkeeper,Right,188,2019-08-01 00:00:00
+8487e536-eae2-4a8e-a6bc-2e20974091b1,Cristian Romero,1998-05-07,Argentina,Defender,Right,183,2019-08-01 00:00:00
+db850c15-87f1-42bc-ab29-b65b1ab16ca8,James Maddison,1996-03-20,England,Midfielder,Right,180,2019-08-01 00:00:00
+68c957e2-f9fd-4bfd-87fd-b264f3812114,Son Heung-min,1992-03-25,South Korea,Forward,Left,183,2019-08-01 00:00:00
+d0ffabcd-bfe5-49f3-a361-574fc203b097,Harry Kane,1993-11-03,England,Forward,Right,188,2019-08-01 00:00:00
+3bcd94bd-6465-4e9c-8185-4a3e98230b82,Emiliano Martinez,1992-03-25,Argentina,Goalkeeper,Right,195,2019-08-01 00:00:00
+a80addec-0d0f-40ba-aa24-e9d2c07ca546,Ollie Watkins,1995-11-16,England,Forward,Right,179,2019-08-01 00:00:00
+e8639210-58e3-41c7-97f9-7b1f627a4f64,John McGinn,1994-08-25,Scotland,Midfielder,Right,185,2019-08-01 00:00:00
+21dcd399-f29e-48ee-94d8-db4dad1a98f0,Nick Pope,1992-10-25,England,Goalkeeper,Right,188,2019-08-01 00:00:00
+06136563-9868-4257-befb-d5e804a11c56,Alexander Isak,1999-10-15,Sweden,Forward,Right,187,2019-08-01 00:00:00
+fc9b0f33-5d58-4b32-8e3c-e96b0498199c,Bruno Guimaraes,1997-11-19,Brazil,Midfielder,Right,179,2019-08-01 00:00:00

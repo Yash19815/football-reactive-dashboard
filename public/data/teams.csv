@@ -1,21 +1,27 @@
 id,name,short_name,founded_year,stadium,city,created_at
-750e8400-e29b-41d4-a716-446655440001,Manchester City,MCI,1880,Etihad Stadium,Manchester,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440002,Arsenal,ARS,1886,Emirates Stadium,London,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440003,Liverpool,LIV,1892,Anfield,Liverpool,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440004,Chelsea,CHE,1905,Stamford Bridge,London,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440005,Manchester United,MUN,1878,Old Trafford,Manchester,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440006,Tottenham Hotspur,TOT,1882,Tottenham Hotspur Stadium,London,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440007,Aston Villa,AVL,1874,Villa Park,Birmingham,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440008,Newcastle United,NEW,1892,St James Park,Newcastle,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440009,Brighton and Hove Albion,BHA,1901,Amex Stadium,Brighton,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440010,Fulham,FUL,1879,Craven Cottage,London,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440011,Nottingham Forest,NOT,1865,City Ground,Nottingham,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440012,Brentford,BRE,1889,Gtech Community Stadium,London,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440013,West Ham United,WHU,1895,London Stadium,London,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440014,Crystal Palace,CRY,1905,Selhurst Park,London,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440015,Wolverhampton Wanderers,WOL,1877,Molineux Stadium,Wolverhampton,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440016,Everton,EVE,1878,Goodison Park,Liverpool,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440017,Leicester City,LEI,1884,King Power Stadium,Leicester,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440018,Bournemouth,BOU,1899,Vitality Stadium,Bournemouth,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440019,Ipswich Town,IPS,1878,Portman Road,Ipswich,2024-08-01 00:00:00
-750e8400-e29b-41d4-a716-446655440020,Southampton,SOU,1885,St Mary's Stadium,Southampton,2024-08-01 00:00:00
+8c013df3-d445-4484-b697-c7daab353551,Manchester City,MCI,1880,Etihad Stadium,Manchester,2019-08-01 00:00:00
+6d44b381-0536-40f9-80e6-0a63de24577a,Liverpool,LIV,1892,Anfield,Liverpool,2019-08-01 00:00:00
+37076a2e-d170-4ae6-b5b4-b740918f783e,Arsenal,ARS,1886,Emirates Stadium,London,2019-08-01 00:00:00
+d2f6a953-ca4d-42da-b409-ab0745270e25,Chelsea,CHE,1905,Stamford Bridge,London,2019-08-01 00:00:00
+d348b175-2fe5-48a2-932d-8863bb9ce9ab,Manchester United,MUN,1878,Old Trafford,Manchester,2019-08-01 00:00:00
+85fa7fbb-b984-4067-a538-cf63d8e854d7,Tottenham Hotspur,TOT,1882,Tottenham Hotspur Stadium,London,2019-08-01 00:00:00
+9e1dc0f0-82a8-4830-8b44-7e4c7d9d7a1f,Leicester City,LEI,1884,King Power Stadium,Leicester,2019-08-01 00:00:00
+c6d07c14-7460-487c-a745-637f44a663df,Everton,EVE,1878,Goodison Park,Liverpool,2019-08-01 00:00:00
+416d1613-0a9f-47de-82c3-f0fc12cb6845,Aston Villa,AVL,1874,Villa Park,Birmingham,2019-08-01 00:00:00
+0d09d093-7f31-4da2-988a-3cb87424dddb,Newcastle United,NEW,1892,St James Park,Newcastle,2019-08-01 00:00:00
+2d7d0009-adcb-4101-9896-f3e2b1fb63b7,West Ham United,WHU,1895,London Stadium,London,2019-08-01 00:00:00
+39c01a97-553e-427d-93a9-ede248c05afb,Southampton,SOU,1885,St Mary's Stadium,Southampton,2019-08-01 00:00:00
+0c6e8a29-4cac-4fe4-bf37-2d267da568ef,Crystal Palace,CRY,1905,Selhurst Park,London,2019-08-01 00:00:00
+c7843b3b-cc1f-4582-8d54-468b6fe9d987,Wolverhampton Wanderers,WOL,1877,Molineux Stadium,Wolverhampton,2019-08-01 00:00:00
+8b401b77-69e9-4ac1-a48f-c8c070dc18f4,Brighton and Hove Albion,BHA,1901,Amex Stadium,Brighton,2019-08-01 00:00:00
+7d8a9182-efef-4c63-b3d1-5c18fd3ee016,Burnley,BUR,1882,Turf Moor,Burnley,2019-08-01 00:00:00
+52a25285-a4b6-4693-8742-a5315a698cd2,Fulham,FUL,1879,Craven Cottage,London,2019-08-01 00:00:00
+1cb8cbaf-57e9-4f6c-9e82-a70435a7379a,Brentford,BRE,1889,Gtech Community Stadium,London,2019-08-01 00:00:00
+2d41ea70-5ec9-4d23-bcb1-bb515bd30bcc,Nottingham Forest,NOT,1865,City Ground,Nottingham,2019-08-01 00:00:00
+b926ff06-32e2-4b56-a2fe-21b126ce047b,Bournemouth,BOU,1899,Vitality Stadium,Bournemouth,2019-08-01 00:00:00
+b189b697-f3e9-48b1-90eb-49cc3b2cffce,Leeds United,LEE,1919,Elland Road,Leeds,2019-08-01 00:00:00
+cb27b6e0-9780-429a-ab0b-c1d3de36ad1b,Sheffield United,SHU,1889,Bramall Lane,Sheffield,2019-08-01 00:00:00
+94fb8728-e4eb-4b34-93a9-059da7cff218,Watford,WAT,1881,Vicarage Road,Watford,2019-08-01 00:00:00
+24825c8c-71da-4574-a14e-757c4041c6a7,Norwich City,NOR,1902,Carrow Road,Norwich,2019-08-01 00:00:00
+9ab9deff-3961-472d-8390-248df609950e,Ipswich Town,IPS,1878,Portman Road,Ipswich,2019-08-01 00:00:00
+65f4d6af-ab50-4955-b963-eab97bb40042,Luton Town,LUT,1885,Kenilworth Road,Luton,2019-08-01 00:00:00
