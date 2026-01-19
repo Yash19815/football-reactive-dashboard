@@ -144,9 +144,8 @@ export async function loadAllData(): Promise<typeof dataCache> {
   loadError = null;
 
   try {
-    // Create seasons for the last 5 years
-    const currentYear = new Date().getFullYear();
-    const seasons = createSeasons(currentYear, 5);
+    // Create seasons for the last 5 years starting from 2024
+    const seasons = createSeasons(2025, 5);
 
     // Create leagues from our predefined map
     const leagues: League[] = Object.values(LEAGUE_MAP).map((league) => ({
@@ -268,6 +267,104 @@ export async function loadAllData(): Promise<typeof dataCache> {
     console.error("Error loading data from API:", error);
     throw error;
   }
+}
+
+/**
+ * Load data for a specific season
+ * Call this when user changes season
+ */
+export async function loadDataForSeason(seasonId: string): Promise<void> {
+  if (!dataCache.leagues || !dataCache.seasons) {
+    throw new Error("Initial data not loaded. Call loadAllData() first.");
+  }
+
+  console.log(`Loading data for season ${seasonId}...`);
+
+  const leagues = dataCache.leagues;
+
+  // Load data for each league in the specified season
+  for (const league of leagues) {
+    try {
+      console.log(`Loading ${league.name} data for season ${seasonId}...`);
+
+      // Fetch standings
+      const standings = await apiFootballService.getStandings(
+        parseInt(league.id),
+        parseInt(seasonId),
+      );
+
+      if (standings && standings.length > 0) {
+        // Process each team in the standings
+        for (const standing of standings) {
+          const teamId = standing.team.id.toString();
+
+          // Add team if not already in cache
+          if (!dataCache.teams?.find((t) => t.id === teamId)) {
+            dataCache.teams = [
+              ...(dataCache.teams || []),
+              {
+                id: teamId,
+                name: standing.team.name,
+                short_name: standing.team.name.substring(0, 3).toUpperCase(),
+                city: league.country,
+              },
+            ];
+          }
+
+          // Add team season stats
+          const teamSeason = transformStanding(standing, league.id, seasonId);
+
+          // Check if already exists
+          const existingIndex = dataCache.teamSeasons?.findIndex(
+            (ts) =>
+              ts.team_id === teamId &&
+              ts.season_id === seasonId &&
+              ts.league_id === league.id,
+          );
+
+          if (existingIndex !== undefined && existingIndex >= 0) {
+            // Update existing
+            dataCache.teamSeasons![existingIndex] = teamSeason;
+          } else {
+            // Add new
+            dataCache.teamSeasons = [
+              ...(dataCache.teamSeasons || []),
+              teamSeason,
+            ];
+          }
+        }
+
+        // Optionally load fixtures
+        try {
+          const fixtures = await apiFootballService.getFixtures(
+            parseInt(league.id),
+            parseInt(seasonId),
+          );
+
+          // Add new fixtures
+          const newFixtures = fixtures
+            .filter(
+              (f) =>
+                !dataCache.matches?.find(
+                  (m) => m.id === f.fixture.id.toString(),
+                ),
+            )
+            .map((f) => transformFixture(f, seasonId));
+
+          dataCache.matches = [...(dataCache.matches || []), ...newFixtures];
+        } catch (error) {
+          console.warn(`Failed to load fixtures for ${league.name}:`, error);
+        }
+      }
+    } catch (error) {
+      console.error(
+        `Failed to load data for ${league.name}, season ${seasonId}:`,
+        error,
+      );
+    }
+  }
+
+  console.log(`Season ${seasonId} data loaded successfully`);
 }
 
 /**

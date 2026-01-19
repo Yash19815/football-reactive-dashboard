@@ -4,6 +4,7 @@ import { TeamStats } from "./components/TeamStats";
 import { PlayerStats } from "./components/PlayerStats";
 import {
   loadAllData,
+  loadDataForSeason,
   getSeasons,
   getLeagues,
   getTeamsForLeagueSeason,
@@ -112,8 +113,15 @@ export default function App() {
   }, [teamId, seasonId, dataLoaded]);
 
   // Handle season change
-  const handleSeasonChange = (newSeasonId: string) => {
+  const handleSeasonChange = async (newSeasonId: string) => {
     setSeasonId(newSeasonId);
+
+    // Load data for the new season
+    try {
+      await loadDataForSeason(newSeasonId);
+    } catch (error) {
+      console.error("Failed to load data for season:", error);
+    }
   };
 
   // Handle league change

@@ -173,17 +173,17 @@ export function transformFixture(
 
 /**
  * Create Season objects for the specified years
+ * Using 2024 as the most recent season with data
  */
 export function createSeasons(startYear: number, count: number): Season[] {
   const seasons: Season[] = [];
-  const currentYear = new Date().getFullYear();
+  // Use 2024 as the current year since that's the latest season with data
+  const currentSeasonYear = 2025;
 
   for (let i = 0; i < count; i++) {
     const year = startYear - i;
     const endYear = year + 1;
-    const isCurrent =
-      year === currentYear ||
-      (year === currentYear - 1 && new Date().getMonth() < 7);
+    const isCurrent = year === currentSeasonYear;
 
     seasons.push({
       id: year.toString(),
