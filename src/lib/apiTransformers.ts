@@ -178,7 +178,7 @@ export function transformFixture(
 export function createSeasons(startYear: number, count: number): Season[] {
   const seasons: Season[] = [];
   // Use 2024 as the current year since that's the latest season with data
-  const currentSeasonYear = 2025;
+  const currentSeasonYear = 2024;
 
   for (let i = 0; i < count; i++) {
     const year = startYear - i;
