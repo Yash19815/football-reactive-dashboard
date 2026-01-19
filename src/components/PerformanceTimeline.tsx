@@ -1,12 +1,26 @@
-import { getPlayerMatchStats } from '../lib/csvLoader';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts';
+import { getPlayerMatchStats } from "../lib/dataLoader";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  Area,
+  AreaChart,
+} from "recharts";
 
 interface PerformanceTimelineProps {
   playerId: string;
   seasonId: string;
 }
 
-export function PerformanceTimeline({ playerId, seasonId }: PerformanceTimelineProps) {
+export function PerformanceTimeline({
+  playerId,
+  seasonId,
+}: PerformanceTimelineProps) {
   const matchStats = getPlayerMatchStats(playerId, seasonId);
 
   if (matchStats.length === 0) {
@@ -34,8 +48,12 @@ export function PerformanceTimeline({ playerId, seasonId }: PerformanceTimelineP
 function TimelineCharts({ data }: { data: any[] }) {
   // Calculate cumulative data
   const cumulativeData = data.map((match, index) => {
-    const cumGoals = data.slice(0, index + 1).reduce((sum, m) => sum + m.goals, 0);
-    const cumAssists = data.slice(0, index + 1).reduce((sum, m) => sum + m.assists, 0);
+    const cumGoals = data
+      .slice(0, index + 1)
+      .reduce((sum, m) => sum + m.goals, 0);
+    const cumAssists = data
+      .slice(0, index + 1)
+      .reduce((sum, m) => sum + m.assists, 0);
     return {
       ...match,
       cumGoals,
@@ -66,10 +84,10 @@ function TimelineCharts({ data }: { data: any[] }) {
             <YAxis stroke="#94a3b8" />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#1e293b',
-                border: '1px solid #334155',
-                borderRadius: '8px',
-                color: '#fff',
+                backgroundColor: "#1e293b",
+                border: "1px solid #334155",
+                borderRadius: "8px",
+                color: "#fff",
               }}
             />
             <Legend />
@@ -103,10 +121,10 @@ function TimelineCharts({ data }: { data: any[] }) {
             <YAxis stroke="#94a3b8" />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#1e293b',
-                border: '1px solid #334155',
-                borderRadius: '8px',
-                color: '#fff',
+                backgroundColor: "#1e293b",
+                border: "1px solid #334155",
+                borderRadius: "8px",
+                color: "#fff",
               }}
             />
             <Legend />

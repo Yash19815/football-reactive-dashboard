@@ -1,10 +1,26 @@
-import { Target, Shield, TrendingUp, Activity, Zap, Trophy } from 'lucide-react';
-import { StatsCard } from './StatsCard';
-import { LeagueStandings } from './LeagueStandings';
-import { FormChart } from './FormChart';
-import { TeamComparison } from './TeamComparison';
-import { getTeamStats, getTeamById } from '../lib/csvLoader';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  Target,
+  Shield,
+  TrendingUp,
+  Activity,
+  Zap,
+  Trophy,
+} from "lucide-react";
+import { StatsCard } from "./StatsCard";
+import { LeagueStandings } from "./LeagueStandings";
+import { FormChart } from "./FormChart";
+import { TeamComparison } from "./TeamComparison";
+import { getTeamStats, getTeamById } from "../lib/dataLoader";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 interface TeamStatsProps {
   teamId: string;
@@ -21,19 +37,21 @@ export function TeamStats({ teamId, leagueId, seasonId }: TeamStatsProps) {
   }
 
   const performanceData = [
-    { metric: 'Goals', team: stats.goals_for, average: 58 },
-    { metric: 'xG', team: stats.xg, average: 61.3 },
-    { metric: 'Possession', team: stats.possession_avg, average: 50.2 },
-    { metric: 'Shots', team: stats.shots_total, average: 412 },
+    { metric: "Goals", team: stats.goals_for, average: 58 },
+    { metric: "xG", team: stats.xg, average: 61.3 },
+    { metric: "Possession", team: stats.possession_avg, average: 50.2 },
+    { metric: "Shots", team: stats.shots_total, average: 412 },
   ];
 
-  const shotAccuracy = stats.shots_total > 0 
-    ? ((stats.shots_on_target / stats.shots_total) * 100).toFixed(1)
-    : '0.0';
+  const shotAccuracy =
+    stats.shots_total > 0
+      ? ((stats.shots_on_target / stats.shots_total) * 100).toFixed(1)
+      : "0.0";
 
-  const cleanSheetPercentage = stats.matches_played > 0
-    ? ((stats.clean_sheets / stats.matches_played) * 100).toFixed(0)
-    : '0';
+  const cleanSheetPercentage =
+    stats.matches_played > 0
+      ? ((stats.clean_sheets / stats.matches_played) * 100).toFixed(0)
+      : "0";
 
   return (
     <div className="space-y-6">
@@ -103,7 +121,11 @@ export function TeamStats({ teamId, leagueId, seasonId }: TeamStatsProps) {
       {/* League Standings */}
       <div>
         <h2 className="text-xl text-white mb-4">League Standings</h2>
-        <LeagueStandings leagueId={leagueId} seasonId={seasonId} highlightTeamId={teamId} />
+        <LeagueStandings
+          leagueId={leagueId}
+          seasonId={seasonId}
+          highlightTeamId={teamId}
+        />
       </div>
 
       {/* Recent Form */}
@@ -114,24 +136,36 @@ export function TeamStats({ teamId, leagueId, seasonId }: TeamStatsProps) {
 
       {/* Performance Comparison */}
       <div>
-        <h2 className="text-xl text-white mb-4">Performance vs League Average</h2>
+        <h2 className="text-xl text-white mb-4">
+          Performance vs League Average
+        </h2>
         <div className="bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={performanceData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
               <XAxis dataKey="metric" stroke="#94a3b8" />
               <YAxis stroke="#94a3b8" />
-              <Tooltip 
-                contentStyle={{ 
-                  backgroundColor: '#1e293b', 
-                  border: '1px solid #334155',
-                  borderRadius: '8px',
-                  color: '#fff'
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#1e293b",
+                  border: "1px solid #334155",
+                  borderRadius: "8px",
+                  color: "#fff",
                 }}
               />
               <Legend />
-              <Bar dataKey="team" fill="#45914d" name={team.name} radius={[8, 8, 0, 0]} />
-              <Bar dataKey="average" fill="#475569" name="League Average" radius={[8, 8, 0, 0]} />
+              <Bar
+                dataKey="team"
+                fill="#45914d"
+                name={team.name}
+                radius={[8, 8, 0, 0]}
+              />
+              <Bar
+                dataKey="average"
+                fill="#475569"
+                name="League Average"
+                radius={[8, 8, 0, 0]}
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -139,7 +173,11 @@ export function TeamStats({ teamId, leagueId, seasonId }: TeamStatsProps) {
       {/* Team Comparison */}
       <div>
         <h2 className="text-xl text-white mb-4">Team Comparison</h2>
-        <TeamComparison team1Id={teamId} leagueId={leagueId} seasonId={seasonId} />
+        <TeamComparison
+          team1Id={teamId}
+          leagueId={leagueId}
+          seasonId={seasonId}
+        />
       </div>
     </div>
   );

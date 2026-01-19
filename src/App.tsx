@@ -1,18 +1,19 @@
-import { useState, useEffect, ChangeEvent } from 'react';
-import { Trophy, Users, User } from 'lucide-react';
-import { TeamStats } from './components/TeamStats';
-import { PlayerStats } from './components/PlayerStats';
+import { useState, useEffect, ChangeEvent } from "react";
+import { Trophy, Users, User } from "lucide-react";
+import { TeamStats } from "./components/TeamStats";
+import { PlayerStats } from "./components/PlayerStats";
 import {
   loadAllData,
   getSeasons,
   getLeagues,
   getTeamsForLeagueSeason,
   getPlayersForTeamSeason,
+  loadPlayersForTeamSeason,
   Season,
   League,
   Team,
   Player,
-} from './lib/csvLoader';
+} from "./lib/dataLoader";
 
 export default function App() {
   // Loading state
@@ -26,11 +27,11 @@ export default function App() {
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
 
   // Selection state
-  const [seasonId, setSeasonId] = useState<string>('');
-  const [mode, setMode] = useState<'team' | 'player'>('team');
-  const [leagueId, setLeagueId] = useState<string>('');
-  const [teamId, setTeamId] = useState<string>('');
-  const [playerId, setPlayerId] = useState<string>('');
+  const [seasonId, setSeasonId] = useState<string>("");
+  const [mode, setMode] = useState<"team" | "player">("team");
+  const [leagueId, setLeagueId] = useState<string>("");
+  const [teamId, setTeamId] = useState<string>("");
+  const [playerId, setPlayerId] = useState<string>("");
 
   // Load CSV data on mount
   useEffect(() => {
@@ -45,7 +46,8 @@ export default function App() {
 
         // Set initial selections
         if (loadedSeasons.length > 0) {
-          const currentSeason = loadedSeasons.find((s) => s.is_current) || loadedSeasons[0];
+          const currentSeason =
+            loadedSeasons.find((s) => s.is_current) || loadedSeasons[0];
           setSeasonId(currentSeason.id);
         }
 
@@ -55,8 +57,13 @@ export default function App() {
 
         setDataLoaded(true);
       } catch (error) {
-        console.error('Failed to load data:', error);
-        setLoadError('Failed to load data. Please check your CSV files.');
+        console.error("Failed to load data:", error);
+        setLoadError(
+          "Failed to load data from API-Football. Please check:\n" +
+            "1. Your API key is set in the .env file\n" +
+            "2. You have available API requests (100/day for free tier)\n" +
+            "3. Your internet connection is working",
+        );
       }
     }
 
@@ -74,7 +81,7 @@ export default function App() {
     if (teams.length > 0) {
       setTeamId(teams[0].id);
     } else {
-      setTeamId('');
+      setTeamId("");
     }
   }, [leagueId, seasonId, dataLoaded]);
 
@@ -82,15 +89,26 @@ export default function App() {
   useEffect(() => {
     if (!dataLoaded || !teamId || !seasonId) return;
 
-    const players = getPlayersForTeamSeason(teamId, seasonId);
-    setAvailablePlayers(players);
+    async function loadPlayers() {
+      try {
+        // Load players on-demand to save API requests
+        await loadPlayersForTeamSeason(teamId, seasonId);
+        const players = getPlayersForTeamSeason(teamId, seasonId);
+        setAvailablePlayers(players);
 
-    // Set first player as selected
-    if (players.length > 0) {
-      setPlayerId(players[0].id);
-    } else {
-      setPlayerId('');
+        // Set first player as selected
+        if (players.length > 0) {
+          setPlayerId(players[0].id);
+        } else {
+          setPlayerId("");
+        }
+      } catch (error) {
+        console.error("Failed to load players:", error);
+        setAvailablePlayers([]);
+      }
     }
+
+    loadPlayers();
   }, [teamId, seasonId, dataLoaded]);
 
   // Handle season change
@@ -117,9 +135,23 @@ export default function App() {
   if (!dataLoaded) {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-white text-xl mb-2">Loading football data...</div>
-          {loadError && <div className="text-red-500 text-sm">{loadError}</div>}
+        <div className="text-center max-w-md mx-auto px-4">
+          <div className="text-white text-xl mb-4">
+            Loading football data from API-Football...
+          </div>
+          <div className="text-slate-400 text-sm mb-4">
+            This may take a moment as we fetch data from the API
+          </div>
+          {loadError && (
+            <div className="bg-red-900/20 border border-red-500 rounded-lg p-4 text-red-200 text-sm whitespace-pre-line">
+              {loadError}
+            </div>
+          )}
+          {!loadError && (
+            <div className="flex justify-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-500"></div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -139,14 +171,22 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Season Filter */}
             <div>
-              <label className="block text-sm mb-2 text-slate-300">Season</label>
+              <label className="block text-sm mb-2 text-slate-300">
+                Season
+              </label>
               <select
                 value={seasonId}
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => handleSeasonChange(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                  handleSeasonChange(e.target.value)
+                }
                 className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
               >
                 {seasons.map((s) => (
-                  <option key={s.id} value={s.id} className="text-white bg-slate-800">
+                  <option
+                    key={s.id}
+                    value={s.id}
+                    className="text-white bg-slate-800"
+                  >
                     {s.name}
                   </option>
                 ))}
@@ -155,10 +195,14 @@ export default function App() {
 
             {/* Mode Toggle */}
             <div>
-              <label className="block text-sm mb-2 text-slate-300">View Mode</label>
+              <label className="block text-sm mb-2 text-slate-300">
+                View Mode
+              </label>
               <select
                 value={mode}
-                onChange={(e: ChangeEvent<HTMLSelectElement>) => setMode(e.target.value as 'team' | 'player')}
+                onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                  setMode(e.target.value as "team" | "player")
+                }
                 className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
               >
                 <option value="team" className="text-white bg-slate-800">
@@ -173,16 +217,22 @@ export default function App() {
             {/* League/Team Dropdown */}
             <div>
               <label className="block text-sm mb-2 text-slate-300">
-                {mode === 'team' ? 'League' : 'Team'}
+                {mode === "team" ? "League" : "Team"}
               </label>
-              {mode === 'team' ? (
+              {mode === "team" ? (
                 <select
                   value={leagueId}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) => handleLeagueChange(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                    handleLeagueChange(e.target.value)
+                  }
                   className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   {leagues.map((league) => (
-                    <option key={league.id} value={league.id} className="text-white bg-slate-800">
+                    <option
+                      key={league.id}
+                      value={league.id}
+                      className="text-white bg-slate-800"
+                    >
                       {league.name}
                     </option>
                   ))}
@@ -190,11 +240,17 @@ export default function App() {
               ) : (
                 <select
                   value={teamId}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) => handleTeamChange(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                    handleTeamChange(e.target.value)
+                  }
                   className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   {availableTeams.map((team) => (
-                    <option key={team.id} value={team.id} className="text-white bg-slate-800">
+                    <option
+                      key={team.id}
+                      value={team.id}
+                      className="text-white bg-slate-800"
+                    >
                       {team.name}
                     </option>
                   ))}
@@ -205,16 +261,20 @@ export default function App() {
             {/* Team/Player Dropdown */}
             <div>
               <label className="block text-sm mb-2 text-slate-300">
-                {mode === 'team' ? 'Team' : 'Player'}
+                {mode === "team" ? "Team" : "Player"}
               </label>
-              {mode === 'team' ? (
+              {mode === "team" ? (
                 <select
                   value={teamId}
                   onChange={(e) => setTeamId(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   {availableTeams.map((team) => (
-                    <option key={team.id} value={team.id} className="text-white bg-slate-800">
+                    <option
+                      key={team.id}
+                      value={team.id}
+                      className="text-white bg-slate-800"
+                    >
                       {team.name}
                     </option>
                   ))}
@@ -230,7 +290,11 @@ export default function App() {
                     <option>No players available</option>
                   ) : (
                     availablePlayers.map((player) => (
-                      <option key={player.id} value={player.id} className="text-white bg-slate-800">
+                      <option
+                        key={player.id}
+                        value={player.id}
+                        className="text-white bg-slate-800"
+                      >
                         {player.name}
                       </option>
                     ))
@@ -246,7 +310,7 @@ export default function App() {
       <div className="max-w-[1600px] mx-auto px-6 py-8">
         {/* Mode Indicator */}
         <div className="flex items-center gap-2 mb-6">
-          {mode === 'team' ? (
+          {mode === "team" ? (
             <>
               <Users className="w-5 h-5 text-green-500" />
               <span className="text-slate-400">Team Analytics</span>
@@ -259,17 +323,21 @@ export default function App() {
           )}
           <span className="text-slate-600">•</span>
           <span className="text-white">
-            {mode === 'team' ? selectedTeam?.name : selectedPlayer?.name}
+            {mode === "team" ? selectedTeam?.name : selectedPlayer?.name}
           </span>
           <span className="text-slate-600">•</span>
           <span className="text-slate-500">{selectedSeason?.name}</span>
         </div>
 
         {/* Stats Sections */}
-        {mode === 'team' && teamId && seasonId ? (
+        {mode === "team" && teamId && seasonId ? (
           <TeamStats teamId={teamId} leagueId={leagueId} seasonId={seasonId} />
-        ) : mode === 'player' && playerId && teamId && seasonId ? (
-          <PlayerStats playerId={playerId} teamId={teamId} seasonId={seasonId} />
+        ) : mode === "player" && playerId && teamId && seasonId ? (
+          <PlayerStats
+            playerId={playerId}
+            teamId={teamId}
+            seasonId={seasonId}
+          />
         ) : (
           <div className="text-white">No data available for this selection</div>
         )}

@@ -1,6 +1,18 @@
-import { useState, useEffect, ChangeEvent } from 'react';
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, ResponsiveContainer } from 'recharts';
-import { getTeamStats, getTeamsForLeagueSeason, getTeamById } from '../lib/csvLoader';
+import { useState, useEffect, ChangeEvent } from "react";
+import {
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import {
+  getTeamStats,
+  getTeamsForLeagueSeason,
+  getTeamById,
+} from "../lib/dataLoader";
 
 interface TeamComparisonProps {
   team1Id: string;
@@ -8,16 +20,22 @@ interface TeamComparisonProps {
   seasonId: string;
 }
 
-export function TeamComparison({ team1Id, leagueId, seasonId }: TeamComparisonProps) {
-  const [team2Id, setTeam2Id] = useState<string>('');
-  const [availableTeams, setAvailableTeams] = useState<{ id: string; name: string }[]>([]);
+export function TeamComparison({
+  team1Id,
+  leagueId,
+  seasonId,
+}: TeamComparisonProps) {
+  const [team2Id, setTeam2Id] = useState<string>("");
+  const [availableTeams, setAvailableTeams] = useState<
+    { id: string; name: string }[]
+  >([]);
 
   // Load available teams for comparison
   useEffect(() => {
     const teams = getTeamsForLeagueSeason(leagueId, seasonId)
       .filter((t) => t.id !== team1Id) // Exclude team1
       .map((t) => ({ id: t.id, name: t.name }));
-    
+
     setAvailableTeams(teams);
     if (teams.length > 0 && !team2Id) {
       setTeam2Id(teams[0].id);
@@ -38,31 +56,39 @@ export function TeamComparison({ team1Id, leagueId, seasonId }: TeamComparisonPr
 
   const comparisonData = [
     {
-      metric: 'Attack',
+      metric: "Attack",
       team1: Math.min((team1Stats.goals_for / maxGoals) * 100, 100),
-      team2: team2Stats ? Math.min((team2Stats.goals_for / maxGoals) * 100, 100) : 0,
+      team2: team2Stats
+        ? Math.min((team2Stats.goals_for / maxGoals) * 100, 100)
+        : 0,
       fullMark: 100,
     },
     {
-      metric: 'Defense',
+      metric: "Defense",
       team1: Math.min((team1Stats.clean_sheets / maxCleanSheets) * 100, 100),
-      team2: team2Stats ? Math.min((team2Stats.clean_sheets / maxCleanSheets) * 100, 100) : 0,
+      team2: team2Stats
+        ? Math.min((team2Stats.clean_sheets / maxCleanSheets) * 100, 100)
+        : 0,
       fullMark: 100,
     },
     {
-      metric: 'Possession',
+      metric: "Possession",
       team1: Math.min((team1Stats.possession_avg / maxPossession) * 100, 100),
-      team2: team2Stats ? Math.min((team2Stats.possession_avg / maxPossession) * 100, 100) : 0,
+      team2: team2Stats
+        ? Math.min((team2Stats.possession_avg / maxPossession) * 100, 100)
+        : 0,
       fullMark: 100,
     },
     {
-      metric: 'Form',
+      metric: "Form",
       team1: (team1Stats.points / (team1Stats.matches_played * 3)) * 100, // Points percentage
-      team2: team2Stats ? (team2Stats.points / (team2Stats.matches_played * 3)) * 100 : 0,
+      team2: team2Stats
+        ? (team2Stats.points / (team2Stats.matches_played * 3)) * 100
+        : 0,
       fullMark: 100,
     },
     {
-      metric: 'Efficiency',
+      metric: "Efficiency",
       team1: (team1Stats.goals_for / team1Stats.xg) * 50, // >1 means good efficiency, scaled
       team2: team2Stats ? (team2Stats.goals_for / team2Stats.xg) * 50 : 0,
       fullMark: 100,
@@ -77,7 +103,9 @@ export function TeamComparison({ team1Id, leagueId, seasonId }: TeamComparisonPr
           <span className="text-sm text-slate-400">vs</span>
           <select
             value={team2Id}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) => setTeam2Id(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+              setTeam2Id(e.target.value)
+            }
             className="px-4 py-2 rounded-lg bg-slate-750 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500 max-w-[200px]"
           >
             {availableTeams.map((t) => (
@@ -118,7 +146,9 @@ export function TeamComparison({ team1Id, leagueId, seasonId }: TeamComparisonPr
       {team2Stats && (
         <div className="mt-6 grid grid-cols-3 gap-4">
           <div className="text-center">
-            <div className="text-2xl text-green-500">{team1Stats.goals_for}</div>
+            <div className="text-2xl text-green-500">
+              {team1Stats.goals_for}
+            </div>
             <div className="text-xs text-slate-400 mt-1">Goals</div>
           </div>
           <div className="text-center border-l border-r border-slate-700">
@@ -130,7 +160,9 @@ export function TeamComparison({ team1Id, leagueId, seasonId }: TeamComparisonPr
             </div>
           </div>
           <div className="text-center">
-            <div className="text-2xl text-orange-500">{team2Stats.goals_for}</div>
+            <div className="text-2xl text-orange-500">
+              {team2Stats.goals_for}
+            </div>
             <div className="text-xs text-slate-400 mt-1">Goals</div>
           </div>
         </div>

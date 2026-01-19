@@ -1,9 +1,24 @@
-import { Target, Activity, Footprints, Shield, Clock, TrendingUp } from 'lucide-react';
-import { StatsCard } from './StatsCard';
-import { PlayerHeatmap } from './PlayerHeatmap';
-import { PerformanceTimeline } from './PerformanceTimeline';
-import { getPlayerStats, getPlayerById } from '../lib/csvLoader';
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, ResponsiveContainer } from 'recharts';
+import {
+  Target,
+  Activity,
+  Footprints,
+  Shield,
+  Clock,
+  TrendingUp,
+} from "lucide-react";
+import { StatsCard } from "./StatsCard";
+import { PlayerHeatmap } from "./PlayerHeatmap";
+import { PerformanceTimeline } from "./PerformanceTimeline";
+import { getPlayerStats, getPlayerById } from "../lib/dataLoader";
+import {
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 interface PlayerStatsProps {
   playerId: string;
@@ -19,17 +34,24 @@ export function PlayerStats({ playerId, teamId, seasonId }: PlayerStatsProps) {
     return <div className="text-white">No player data available</div>;
   }
 
-  const dribbleSuccessRate = stats.dribbles_attempted > 0
-    ? ((stats.dribbles_successful / stats.dribbles_attempted) * 100).toFixed(0)
-    : '0';
+  const dribbleSuccessRate =
+    stats.dribbles_attempted > 0
+      ? ((stats.dribbles_successful / stats.dribbles_attempted) * 100).toFixed(
+          0,
+        )
+      : "0";
 
   const skillsData = [
-    { skill: 'Shooting', value: 95, fullMark: 100 },
-    { skill: 'Passing', value: stats.pass_accuracy || 0, fullMark: 100 },
-    { skill: 'Dribbling', value: parseFloat(dribbleSuccessRate), fullMark: 100 },
-    { skill: 'Defending', value: 45, fullMark: 100 },
-    { skill: 'Physical', value: 92, fullMark: 100 },
-    { skill: 'Pace', value: 90, fullMark: 100 },
+    { skill: "Shooting", value: 95, fullMark: 100 },
+    { skill: "Passing", value: stats.pass_accuracy || 0, fullMark: 100 },
+    {
+      skill: "Dribbling",
+      value: parseFloat(dribbleSuccessRate),
+      fullMark: 100,
+    },
+    { skill: "Defending", value: 45, fullMark: 100 },
+    { skill: "Physical", value: 92, fullMark: 100 },
+    { skill: "Pace", value: 90, fullMark: 100 },
   ];
 
   return (
@@ -50,7 +72,13 @@ export function PlayerStats({ playerId, teamId, seasonId }: PlayerStatsProps) {
             subtitle={`${stats.xg.toFixed(1)} xG`}
             icon={Target}
             highlight
-            trend={stats.goals > stats.xg ? 'up' : stats.goals < stats.xg ? 'down' : 'neutral'}
+            trend={
+              stats.goals > stats.xg
+                ? "up"
+                : stats.goals < stats.xg
+                  ? "down"
+                  : "neutral"
+            }
             trendValue={`${(stats.goals - stats.xg).toFixed(1)} vs xG`}
           />
           <StatsCard
@@ -108,12 +136,12 @@ export function PlayerStats({ playerId, teamId, seasonId }: PlayerStatsProps) {
               <PolarGrid stroke="#475569" />
               <PolarAngleAxis dataKey="skill" stroke="#94a3b8" />
               <PolarRadiusAxis angle={90} domain={[0, 100]} stroke="#94a3b8" />
-              <Radar 
-                name={player.name} 
-                dataKey="value" 
-                stroke="#45914d" 
-                fill="#45914d" 
-                fillOpacity={0.6} 
+              <Radar
+                name={player.name}
+                dataKey="value"
+                stroke="#45914d"
+                fill="#45914d"
+                fillOpacity={0.6}
               />
               <Legend />
             </RadarChart>
