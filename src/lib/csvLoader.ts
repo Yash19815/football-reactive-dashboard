@@ -1,4 +1,4 @@
-import Papa from 'papaparse';
+import Papa from "papaparse";
 
 export type Season = {
   id: string;
@@ -105,7 +105,10 @@ export type PlayerMatchStat = {
 };
 
 // Generic CSV loader
-async function loadCSV<T>(filepath: string, transform?: (row: any) => T): Promise<T[]> {
+async function loadCSV<T>(
+  filepath: string,
+  transform?: (row: any) => T,
+): Promise<T[]> {
   return new Promise((resolve, reject) => {
     Papa.parse(filepath, {
       download: true,
@@ -157,14 +160,14 @@ export async function loadAllData() {
       matches,
       playerMatchStats,
     ] = await Promise.all([
-      loadCSV<Season>('/data/seasons.csv'),
-      loadCSV<League>('/data/leagues.csv'),
-      loadCSV<Team>('/data/teams.csv'),
-      loadCSV<Player>('/data/players.csv'),
-      loadCSV<TeamSeason>('/data/team_seasons.csv', transformTeamSeason),
-      loadCSV<PlayerTeamSeason>('/data/player_team_seasons.csv'),
-      loadCSV<Match>('/data/matches.csv').catch(() => []), // Optional
-      loadCSV<PlayerMatchStat>('/data/player_match_stats.csv').catch(() => []), // Optional
+      loadCSV<Season>("/data/seasons.csv"),
+      loadCSV<League>("/data/leagues.csv"),
+      loadCSV<Team>("/data/teams.csv"),
+      loadCSV<Player>("/data/players.csv"),
+      loadCSV<TeamSeason>("/data/team_seasons.csv", transformTeamSeason),
+      loadCSV<PlayerTeamSeason>("/data/player_team_seasons.csv"),
+      loadCSV<Match>("/data/matches.csv").catch(() => []), // Optional
+      loadCSV<PlayerMatchStat>("/data/player_match_stats.csv").catch(() => []), // Optional
     ]);
 
     dataCache = {
@@ -180,7 +183,7 @@ export async function loadAllData() {
 
     return dataCache;
   } catch (error) {
-    console.error('Error loading CSV data:', error);
+    console.error("Error loading CSV data:", error);
     throw error;
   }
 }
@@ -203,7 +206,10 @@ export function getPlayers(): Player[] {
 }
 
 // Get teams for a specific league and season
-export function getTeamsForLeagueSeason(leagueId: string, seasonId: string): Team[] {
+export function getTeamsForLeagueSeason(
+  leagueId: string,
+  seasonId: string,
+): Team[] {
   if (!dataCache.teamSeasons || !dataCache.teams) return [];
 
   const teamIds = dataCache.teamSeasons
@@ -214,7 +220,10 @@ export function getTeamsForLeagueSeason(leagueId: string, seasonId: string): Tea
 }
 
 // Get players for a specific team and season
-export function getPlayersForTeamSeason(teamId: string, seasonId: string): Player[] {
+export function getPlayersForTeamSeason(
+  teamId: string,
+  seasonId: string,
+): Player[] {
   if (!dataCache.playerTeamSeasons || !dataCache.players) return [];
 
   const playerIds = dataCache.playerTeamSeasons
@@ -225,11 +234,16 @@ export function getPlayersForTeamSeason(teamId: string, seasonId: string): Playe
 }
 
 // Get team stats
-export function getTeamStats(teamId: string, seasonId: string): TeamSeason | null {
+export function getTeamStats(
+  teamId: string,
+  seasonId: string,
+): TeamSeason | null {
   if (!dataCache.teamSeasons) return null;
 
   return (
-    dataCache.teamSeasons.find((ts) => ts.team_id === teamId && ts.season_id === seasonId) || null
+    dataCache.teamSeasons.find(
+      (ts) => ts.team_id === teamId && ts.season_id === seasonId,
+    ) || null
   );
 }
 
@@ -237,19 +251,25 @@ export function getTeamStats(teamId: string, seasonId: string): TeamSeason | nul
 export function getPlayerStats(
   playerId: string,
   teamId: string,
-  seasonId: string
+  seasonId: string,
 ): PlayerTeamSeason | null {
   if (!dataCache.playerTeamSeasons) return null;
 
   return (
     dataCache.playerTeamSeasons.find(
-      (pts) => pts.player_id === playerId && pts.team_id === teamId && pts.season_id === seasonId
+      (pts) =>
+        pts.player_id === playerId &&
+        pts.team_id === teamId &&
+        pts.season_id === seasonId,
     ) || null
   );
 }
 
 // Get league standings
-export function getLeagueStandings(leagueId: string, seasonId: string): TeamSeason[] {
+export function getLeagueStandings(
+  leagueId: string,
+  seasonId: string,
+): TeamSeason[] {
   if (!dataCache.teamSeasons) return [];
 
   return dataCache.teamSeasons
@@ -262,13 +282,13 @@ export function getPlayerMatchStats(playerId: string, seasonId: string): any[] {
   if (!dataCache.playerMatchStats || !dataCache.matches) return [];
 
   const playerMatches = dataCache.playerMatchStats.filter(
-    (pms) => pms.player_id === playerId
+    (pms) => pms.player_id === playerId,
   );
 
   return playerMatches
     .map((pms) => {
       const match = dataCache.matches?.find(
-        (m) => m.id === pms.match_id && m.season_id === seasonId
+        (m) => m.id === pms.match_id && m.season_id === seasonId,
       );
       return match ? { ...pms, match } : null;
     })

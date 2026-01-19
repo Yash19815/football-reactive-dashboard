@@ -5,28 +5,41 @@ interface FormChartProps {
 export function FormChart({ form }: FormChartProps) {
   const getFormColor = (result: string) => {
     switch (result) {
-      case 'W': return 'bg-green-600';
-      case 'D': return 'bg-yellow-500';
-      case 'L': return 'bg-red-500';
-      default: return 'bg-slate-600';
+      case "W":
+        return "bg-green-600";
+      case "D":
+        return "bg-yellow-500";
+      case "L":
+        return "bg-red-500";
+      default:
+        return "bg-slate-600";
     }
   };
 
   const getFormText = (result: string) => {
     switch (result) {
-      case 'W': return 'Win';
-      case 'D': return 'Draw';
-      case 'L': return 'Loss';
-      default: return 'N/A';
+      case "W":
+        return "Win";
+      case "D":
+        return "Draw";
+      case "L":
+        return "Loss";
+      default:
+        return "N/A";
     }
   };
 
   const recentMatches = [
-    { opponent: 'Brighton', result: 'W', score: '4-1', date: 'Mar 2' },
-    { opponent: 'Nottingham Forest', result: 'W', score: '2-0', date: 'Feb 23' },
-    { opponent: 'Chelsea', result: 'D', score: '1-1', date: 'Feb 17' },
-    { opponent: 'Brentford', result: 'W', score: '3-1', date: 'Feb 5' },
-    { opponent: 'Newcastle', result: 'W', score: '2-0', date: 'Jan 13' },
+    { opponent: "Brighton", result: "W", score: "4-1", date: "Mar 2" },
+    {
+      opponent: "Nottingham Forest",
+      result: "W",
+      score: "2-0",
+      date: "Feb 23",
+    },
+    { opponent: "Chelsea", result: "D", score: "1-1", date: "Feb 17" },
+    { opponent: "Brentford", result: "W", score: "3-1", date: "Feb 5" },
+    { opponent: "Newcastle", result: "W", score: "2-0", date: "Jan 13" },
   ];
 
   return (
@@ -42,7 +55,9 @@ export function FormChart({ form }: FormChartProps) {
                 className={`flex-1 ${getFormColor(result)} rounded-lg p-3 text-white text-center transition-transform hover:scale-105`}
               >
                 <div className="text-xl">{result}</div>
-                <div className="text-xs mt-1 opacity-90">{getFormText(result)}</div>
+                <div className="text-xs mt-1 opacity-90">
+                  {getFormText(result)}
+                </div>
               </div>
             ))}
           </div>
@@ -58,7 +73,9 @@ export function FormChart({ form }: FormChartProps) {
                 className="flex items-center justify-between py-2 px-3 bg-slate-750 rounded-lg hover:bg-slate-700 transition-colors"
               >
                 <div className="flex items-center gap-3">
-                  <span className={`w-8 h-8 rounded flex items-center justify-center text-white text-xs ${getFormColor(match.result)}`}>
+                  <span
+                    className={`w-8 h-8 rounded flex items-center justify-center text-white text-xs ${getFormColor(match.result)}`}
+                  >
                     {match.result}
                   </span>
                   <span className="text-white">{match.opponent}</span>
