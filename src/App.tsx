@@ -27,14 +27,14 @@ export default function App() {
   const [availableTeams, setAvailableTeams] = useState<Team[]>([]);
   const [availablePlayers, setAvailablePlayers] = useState<Player[]>([]);
 
-  // Selection state
+  // Selection state - ALL START EMPTY (no auto-selection)
   const [seasonId, setSeasonId] = useState<string>("");
   const [mode, setMode] = useState<"team" | "player">("team");
   const [leagueId, setLeagueId] = useState<string>("");
   const [teamId, setTeamId] = useState<string>("");
   const [playerId, setPlayerId] = useState<string>("");
 
-  // Load CSV data on mount
+  // Load metadata on mount (no API calls)
   useEffect(() => {
     async function loadData() {
       try {
@@ -45,44 +45,55 @@ export default function App() {
         setSeasons(loadedSeasons);
         setLeagues(loadedLeagues);
 
-        // Set initial selections
-        if (loadedSeasons.length > 0) {
-          const currentSeason =
-            loadedSeasons.find((s) => s.is_current) || loadedSeasons[0];
-          setSeasonId(currentSeason.id);
-        }
-
-        if (loadedLeagues.length > 0) {
-          setLeagueId(loadedLeagues[0].id);
-        }
+        // DON'T auto-select anything - let user choose
+        // This prevents automatic API calls on page load
 
         setDataLoaded(true);
       } catch (error) {
-        console.error("Failed to load data:", error);
-        setLoadError(
-          "Failed to load data from API-Football. Please check:\n" +
-            "1. Your API key is set in the .env file\n" +
-            "2. You have available API requests (100/day for free tier)\n" +
-            "3. Your internet connection is working",
-        );
+        console.error("Failed to load metadata:", error);
+        setLoadError("Failed to load metadata. Please refresh the page.");
       }
     }
 
     loadData();
   }, []);
 
-  // Update available teams when league or season changes
+  // Fetch teams when BOTH league AND season are selected
   useEffect(() => {
-    if (!dataLoaded || !leagueId || !seasonId) return;
-
-    const teams = getTeamsForLeagueSeason(leagueId, seasonId);
-    setAvailableTeams(teams);
-
-    // Set first team as selected
-    if (teams.length > 0) {
-      setTeamId(teams[0].id);
-    } else {
+    if (!dataLoaded || !leagueId || !seasonId) {
+      // Clear teams if selections incomplete
+      setAvailableTeams([]);
       setTeamId("");
+      return;
+    }
+
+    // Check if we already have data for this league/season
+    const existingTeams = getTeamsForLeagueSeason(leagueId, seasonId);
+
+    if (existingTeams.length > 0) {
+      // Use cached data
+      console.log(
+        `Using cached data for league ${leagueId}, season ${seasonId}`,
+      );
+      setAvailableTeams(existingTeams);
+    } else {
+      // Fetch from API
+      async function fetchSeasonData() {
+        try {
+          console.log(
+            `Fetching data for season ${seasonId}, league ${leagueId}...`,
+          );
+          await loadDataForSeason(seasonId);
+          const teams = getTeamsForLeagueSeason(leagueId, seasonId);
+          setAvailableTeams(teams);
+          console.log(`Loaded ${teams.length} teams for ${leagueId}`);
+        } catch (error) {
+          console.error("Failed to load season data:", error);
+          setAvailableTeams([]);
+        }
+      }
+
+      fetchSeasonData();
     }
   }, [leagueId, seasonId, dataLoaded]);
 
@@ -154,10 +165,10 @@ export default function App() {
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center max-w-md mx-auto px-4">
           <div className="text-white text-xl mb-4">
-            Loading football data from API-Football...
+            Loading Football Analytics Dashboard...
           </div>
           <div className="text-slate-400 text-sm mb-4">
-            This may take a moment as we fetch data from the API
+            Preparing seasons and leagues
           </div>
           {loadError && (
             <div className="bg-red-900/20 border border-red-500 rounded-lg p-4 text-red-200 text-sm whitespace-pre-line">
@@ -198,6 +209,9 @@ export default function App() {
                 }
                 className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
               >
+                <option value="" className="text-slate-400 bg-slate-800">
+                  Select Season...
+                </option>
                 {seasons.map((s) => (
                   <option
                     key={s.id}
@@ -244,6 +258,9 @@ export default function App() {
                   }
                   className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
+                  <option value="" className="text-slate-400 bg-slate-800">
+                    Select League...
+                  </option>
                   {leagues.map((league) => (
                     <option
                       key={league.id}
@@ -262,6 +279,11 @@ export default function App() {
                   }
                   className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
+                  <option value="" className="text-slate-400 bg-slate-800">
+                    {seasonId && leagueId
+                      ? "Select Team..."
+                      : "Select season & league first"}
+                  </option>
                   {availableTeams.map((team) => (
                     <option
                       key={team.id}
@@ -286,6 +308,11 @@ export default function App() {
                   onChange={(e) => setTeamId(e.target.value)}
                   className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
+                  <option value="" className="text-slate-400 bg-slate-800">
+                    {seasonId && leagueId
+                      ? "Select Team..."
+                      : "Select season & league first"}
+                  </option>
                   {availableTeams.map((team) => (
                     <option
                       key={team.id}
@@ -303,19 +330,22 @@ export default function App() {
                   className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
                   disabled={availablePlayers.length === 0}
                 >
-                  {availablePlayers.length === 0 ? (
-                    <option>No players available</option>
-                  ) : (
-                    availablePlayers.map((player) => (
-                      <option
-                        key={player.id}
-                        value={player.id}
-                        className="text-white bg-slate-800"
-                      >
-                        {player.name}
-                      </option>
-                    ))
-                  )}
+                  <option value="" className="text-slate-400 bg-slate-800">
+                    {teamId && seasonId
+                      ? availablePlayers.length === 0
+                        ? "No players available"
+                        : "Select Player..."
+                      : "Select team first"}
+                  </option>
+                  {availablePlayers.map((player) => (
+                    <option
+                      key={player.id}
+                      value={player.id}
+                      className="text-white bg-slate-800"
+                    >
+                      {player.name}
+                    </option>
+                  ))}
                 </select>
               )}
             </div>
@@ -356,7 +386,25 @@ export default function App() {
             seasonId={seasonId}
           />
         ) : (
-          <div className="text-white">No data available for this selection</div>
+          <div className="bg-slate-800 rounded-lg p-12 text-center border border-slate-700">
+            <div className="text-slate-400 text-lg mb-3">
+              👆 Select options above to view data
+            </div>
+            <div className="text-slate-500 text-sm">
+              {!seasonId &&
+                !leagueId &&
+                "Start by selecting a Season and League"}
+              {seasonId && !leagueId && "Now select a League"}
+              {seasonId &&
+                leagueId &&
+                !teamId &&
+                "Now select a Team to view stats"}
+              {mode === "player" &&
+                teamId &&
+                !playerId &&
+                "Now select a Player to view their stats"}
+            </div>
+          </div>
         )}
       </div>
     </div>

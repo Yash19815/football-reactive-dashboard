@@ -110,7 +110,6 @@ import {
   transformPlayer,
   transformPlayerStatistics,
   transformFixture,
-  enhanceTeamSeasonWithStats,
   createSeasons,
   LEAGUE_MAP,
 } from "./apiTransformers";
@@ -155,93 +154,13 @@ export async function loadAllData(): Promise<typeof dataCache> {
       tier: 1,
     }));
 
-    // Initialize arrays
+    // Initialize empty arrays - NO data fetching on load
+    // Data will be fetched on-demand when user makes selections
     const teams: Team[] = [];
     const teamSeasons: TeamSeason[] = [];
     const players: Player[] = [];
     const playerTeamSeasons: PlayerTeamSeason[] = [];
     const matches: Match[] = [];
-
-    // For the free tier (100 requests/day), we'll load only the current season initially
-    // Always default to 2024 which has actual data
-    const currentSeason =
-      seasons.find((s) => s.id === "2024") ||
-      seasons.find((s) => s.is_current) ||
-      seasons[seasons.length - 1];
-
-    console.log(`Loading data for season ${currentSeason.name}...`);
-
-    // Load data for each league in the current season
-    for (const league of leagues) {
-      try {
-        console.log(`Loading ${league.name} data...`);
-
-        // Fetch standings (this gives us teams and their stats)
-        const standings = await apiFootballService.getStandings(
-          parseInt(league.id),
-          parseInt(currentSeason.id),
-        );
-
-        if (standings && standings.length > 0) {
-          // Process each team in the standings
-          for (const standing of standings) {
-            const teamId = standing.team.id.toString();
-
-            // Add team if not already added
-            if (!teams.find((t) => t.id === teamId)) {
-              teams.push({
-                id: teamId,
-                name: standing.team.name,
-                short_name: standing.team.name.substring(0, 3).toUpperCase(),
-                city: league.country,
-              });
-            }
-
-            // Add team season stats
-            const teamSeason = transformStanding(
-              standing,
-              league.id,
-              currentSeason.id,
-            );
-
-            // Try to enhance with detailed statistics (optional, costs extra API call)
-            try {
-              const detailedStats = await apiFootballService.getTeamStatistics(
-                standing.team.id,
-                parseInt(league.id),
-                parseInt(currentSeason.id),
-              );
-              if (detailedStats) {
-                teamSeasons.push(
-                  enhanceTeamSeasonWithStats(teamSeason, detailedStats),
-                );
-              } else {
-                teamSeasons.push(teamSeason);
-              }
-            } catch (error) {
-              // If detailed stats fail, just use standing data
-              teamSeasons.push(teamSeason);
-            }
-          }
-
-          // Fetch fixtures for this league (optional, can be loaded on demand)
-          try {
-            const fixtures = await apiFootballService.getFixtures(
-              parseInt(league.id),
-              parseInt(currentSeason.id),
-            );
-            fixtures.forEach((fixture) => {
-              matches.push(transformFixture(fixture, currentSeason.id));
-            });
-          } catch (error) {
-            console.warn(`Failed to load fixtures for ${league.name}:`, error);
-          }
-        }
-      } catch (error) {
-        console.error(`Failed to load data for ${league.name}:`, error);
-        // Continue with other leagues
-      }
-    }
 
     // Store in cache
     dataCache = {
@@ -252,14 +171,12 @@ export async function loadAllData(): Promise<typeof dataCache> {
       teamSeasons,
       playerTeamSeasons,
       matches,
-      playerMatchStats: [], // Will be loaded on demand
+      playerMatchStats: [],
     };
 
-    console.log("Data loaded successfully:", {
+    console.log("Metadata loaded (no API calls made):", {
+      seasons: seasons.length,
       leagues: leagues.length,
-      teams: teams.length,
-      teamSeasons: teamSeasons.length,
-      matches: matches.length,
     });
 
     isLoading = false;
@@ -267,7 +184,7 @@ export async function loadAllData(): Promise<typeof dataCache> {
   } catch (error) {
     isLoading = false;
     loadError = error instanceof Error ? error.message : "Unknown error";
-    console.error("Error loading data from API:", error);
+    console.error("Error loading metadata:", error);
     throw error;
   }
 }
