@@ -163,8 +163,11 @@ export async function loadAllData(): Promise<typeof dataCache> {
     const matches: Match[] = [];
 
     // For the free tier (100 requests/day), we'll load only the current season initially
-    // Users can load more data as needed
-    const currentSeason = seasons.find((s) => s.is_current) || seasons[0];
+    // Always default to 2024 which has actual data
+    const currentSeason =
+      seasons.find((s) => s.id === "2024") ||
+      seasons.find((s) => s.is_current) ||
+      seasons[seasons.length - 1];
 
     console.log(`Loading data for season ${currentSeason.name}...`);
 
@@ -397,10 +400,19 @@ export async function loadPlayersForTeamSeason(
     const newPlayerTeamSeasons: PlayerTeamSeason[] = [];
 
     for (const apiPlayer of squad) {
+      // The squad endpoint returns APISquadPlayer with direct properties
+      const playerId = apiPlayer.id;
+      const playerName = apiPlayer.name;
+
+      if (!playerId) {
+        console.warn("Skipping player with no ID:", apiPlayer);
+        continue;
+      }
+
       // Get detailed player statistics
       try {
         const playerStats = await apiFootballService.getPlayerStatistics(
-          apiPlayer.player.id,
+          playerId,
           parseInt(seasonId),
         );
 
@@ -418,12 +430,12 @@ export async function loadPlayersForTeamSeason(
           }
         }
       } catch (error) {
-        // If we can't get stats, just add basic player info
+        // If we can't get stats, just add basic player info from squad
         newPlayers.push({
-          id: apiPlayer.player.id.toString(),
-          name: apiPlayer.player.name,
-          position: "Unknown",
-          nationality: apiPlayer.player.nationality || "Unknown",
+          id: playerId.toString(),
+          name: playerName || "Unknown",
+          position: apiPlayer.position || "Unknown",
+          nationality: "Unknown", // Squad endpoint doesn't include nationality
         });
       }
     }

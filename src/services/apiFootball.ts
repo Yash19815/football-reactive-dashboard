@@ -161,6 +161,16 @@ export interface APIPlayer {
   }>;
 }
 
+// Simpler type for squad endpoint which returns basic player info
+export interface APISquadPlayer {
+  id: number;
+  name: string;
+  age: number;
+  number: number;
+  position: string;
+  photo: string;
+}
+
 export interface APITeamStatistics {
   league: {
     id: number;
@@ -460,9 +470,9 @@ class APIFootballService {
     }
   }
 
-  async getTeamSquad(teamId: number): Promise<APIPlayer[]> {
+  async getTeamSquad(teamId: number): Promise<APISquadPlayer[]> {
     const cacheKey = this.getCacheKey("team_squad", { teamId });
-    const cached = this.getFromCache<APIPlayer[]>(cacheKey);
+    const cached = this.getFromCache<APISquadPlayer[]>(cacheKey);
     if (cached) return cached;
 
     try {
