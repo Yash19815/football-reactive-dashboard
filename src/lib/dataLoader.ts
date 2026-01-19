@@ -145,7 +145,7 @@ export async function loadAllData(): Promise<typeof dataCache> {
 
   try {
     // Create seasons for the last 5 years starting from 2024
-    const seasons = createSeasons(2025, 5);
+    const seasons = createSeasons(2024, 5);
 
     // Create leagues from our predefined map
     const leagues: League[] = Object.values(LEAGUE_MAP).map((league) => ({
@@ -378,6 +378,10 @@ export async function loadPlayersForTeamSeason(
   teamId: string,
   seasonId: string,
 ): Promise<Player[]> {
+  console.log(
+    `[loadPlayersForTeamSeason] Called for team ${teamId}, season ${seasonId}`,
+  );
+
   try {
     // Check if already loaded
     const existingPlayers = dataCache.players?.filter((p) =>
@@ -390,11 +394,20 @@ export async function loadPlayersForTeamSeason(
     );
 
     if (existingPlayers && existingPlayers.length > 0) {
+      console.log(
+        `[loadPlayersForTeamSeason] Found ${existingPlayers.length} cached players`,
+      );
       return existingPlayers;
     }
 
     // Fetch from API
+    console.log(
+      `[loadPlayersForTeamSeason] Fetching squad from API for team ${teamId}...`,
+    );
     const squad = await apiFootballService.getTeamSquad(parseInt(teamId));
+    console.log(
+      `[loadPlayersForTeamSeason] Received ${squad.length} players in squad`,
+    );
 
     const newPlayers: Player[] = [];
     const newPlayerTeamSeasons: PlayerTeamSeason[] = [];
@@ -447,9 +460,12 @@ export async function loadPlayersForTeamSeason(
       ...newPlayerTeamSeasons,
     ];
 
+    console.log(
+      `[loadPlayersForTeamSeason] Successfully loaded ${newPlayers.length} players for team ${teamId}`,
+    );
     return newPlayers;
   } catch (error) {
-    console.error("Failed to load players for team:", error);
+    console.error("[loadPlayersForTeamSeason] Failed to load players:", error);
     return [];
   }
 }

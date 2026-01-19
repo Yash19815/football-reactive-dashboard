@@ -88,20 +88,29 @@ export default function App() {
 
   // Update available players when team or season changes
   useEffect(() => {
-    if (!dataLoaded || !teamId || !seasonId) return;
+    if (!dataLoaded || !teamId || !seasonId) {
+      console.log("Player loading skipped:", { dataLoaded, teamId, seasonId });
+      return;
+    }
 
     async function loadPlayers() {
       try {
+        console.log(
+          `Loading players for team ${teamId} in season ${seasonId}...`,
+        );
         // Load players on-demand to save API requests
         await loadPlayersForTeamSeason(teamId, seasonId);
         const players = getPlayersForTeamSeason(teamId, seasonId);
+        console.log(`Loaded ${players.length} players for team ${teamId}`);
         setAvailablePlayers(players);
 
         // Set first player as selected
         if (players.length > 0) {
           setPlayerId(players[0].id);
+          console.log(`Selected player: ${players[0].name}`);
         } else {
           setPlayerId("");
+          console.warn("No players available for this team/season");
         }
       } catch (error) {
         console.error("Failed to load players:", error);
